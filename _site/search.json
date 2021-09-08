@@ -5,15 +5,15 @@
       "title": "Blog",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-09-08T13:49:50-05:00"
+      "last_modified": "2021-09-08T14:13:30-05:00"
     },
     {
       "path": "index.html",
       "title": "Ben Wagner",
-      "description": "My adventures in R...\n",
+      "description": "Hi, welcome to my adventures in R!\n",
       "author": [],
-      "contents": "\r\n\r\nAbout Me:\r\nEducation:\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-09-08T13:49:52-05:00"
+      "contents": "\r\n\r\nAbout Me:\r\nI am a student at Macalester College who is passionate about all things Data Science. I have about 3 years worth of experience in R, of which I used to create this website you’re on right now! I am also familiar with Python, and have dabbled in using Tableau.\r\nI am currently on the Men’s Soccer team here at Macalester as you can see from my headshot above. I have played many different sports as well as soccer including Basketball, Tennis and Hockey. I get very excited combining my love for sports and data analytics!\r\nEducation:\r\nOrchard Park High School Class of 2018\r\nMacalester College ’22 B.A. Economics Minor in Data Science\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-09-08T14:13:31-05:00"
     }
   ],
   "collections": ["posts/posts.json", "Posts/Posts.json"]
