@@ -1,0 +1,20 @@
+name: "website"
+title: "Ben Wagner"
+description: |
+  My adventures in R
+output_dir: "_site"
+navbar:
+  logo:
+    image: BW logo.jpg
+  right:
+    - text: "About"
+      href: index.html
+    - text: "Blog"
+      href: blog.html
+    - icon: fab fa-github
+      href: https://github.com/bennywags15
+    - icon: fab fa-linkedin
+      href: https://www.linkedin.com/in/benjamin-wagner-a37238184/
+    - icon: fab fa-twitter
+      href: https://twitter.com/BenWagnerDS
+output: distill::distill_article
