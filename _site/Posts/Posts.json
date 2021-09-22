@@ -1,1 +1,19 @@
-[]
+[
+  {
+    "path": "Posts/2021-09-21-tidy-tuesday-billboard-top-100-sept-22/",
+    "title": "Tidy Tuesday: Billboard Top 100 (Sept. 21)",
+    "description": "My Tidy Tuesday submission for Sept. 21st.",
+    "author": [
+      {
+        "name": "Ben Wagner",
+        "url": {}
+      }
+    ],
+    "date": "2021-09-21",
+    "categories": [],
+    "contents": "\r\n\r\n\r\n\r\nI’m super excited to publish my first blog post on my website! This entry highlights my Tidy Tuesday submission for the week of September 21st. This week’s dataset contains information on the weekly Billboard Top 100 songs and each song’s audio features. The data comes from Data.World, scraped by Sean Miller on Billboard and Spotify.\r\nLooking at my visualization, I decided to show the relationship between the how long each #1 hit stayed at the top, and the level of danceability the song contains. People love to dance. The more we dance, the more we play those top hits. Thus, they continue to stay at the top for longer! In order to do this, I filtered out all the songs that didn’t peak at #1 and then created a new variable which counted the number of weeks it stayed at the top. From there, I created a scatter plot in order to show each song as a point. Also, it is easier to show the linear relationship (line of best fit) between the two variables. Finally, the color scheme seemed like the perfect aethstetically pleasing theme that makes it all pop. If you liked my viz, please go like or even retweet on my twitter post. I’d love to show my visualizations to as many people as possible, so your support is very much appreciated. Also if you’d like to see my source code, use this link to my Github!\r\n\r\n\r\n\r\n",
+    "preview": "Posts/2021-09-21-tidy-tuesday-billboard-top-100-sept-22/Tidy_Tuesday_Sept21.png",
+    "last_modified": "2021-09-22T12:20:35-05:00",
+    "input_file": {}
+  }
+]
