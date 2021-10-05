@@ -1,0 +1,85 @@
+---
+title: "Tidy Tuesday: Emmys (Oct. 5)"
+description: |
+  My Tidy Tuesday Submission for Week 41
+author:
+  - name: Ben Wagner
+    url: {}
+date: 10-05-2021
+preview: Emmy_logo.jpg
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, fig.height = 5)
+```
+
+```{r}
+library(tidytuesdayR)
+library(tidyverse)
+library(ggplot2)
+library(rvest)
+library(gganimate)
+tuesdata <- tidytuesdayR::tt_load('2021-09-21')
+nominees <- tuesdata$nominees
+```
+
+```{r theme}
+
+#theme
+My_theme <- theme(
+  #titles
+  plot.title=element_text(hjust=0.5, size=14, color="#bd9702"),
+  plot.title.position = "plot",
+  plot.caption=element_text(size=8, color="#bd9702", hjust=0.5),
+  plot.caption.position = "plot",
+  plot.subtitle = element_text(color = "#bd9702"),
+
+  #background
+  panel.border=element_blank(),
+  panel.background = element_rect(fill = "#000000"),
+  plot.background = element_rect(fill = "#000000"),
+  plot.margin=ggplot2::margin(0.5, 0.5, 0.5, 0.5, "in"),
+  #axes
+  axis.ticks.length=unit(0.15, "cm"),
+  axis.ticks = element_blank(),
+  axis.line = element_blank(),
+  axis.text = element_text(size=6, color="white"),
+  axis.text.x = element_text(vjust = 2),
+  #no legend
+  legend.position = "none")
+```
+
+
+```{r anim}
+nominees_anim <- nominees %>% 
+  filter(year >= 2000) %>%
+  filter(year != 2014) %>% 
+  group_by(distributor, year) %>% 
+  count(distributor) %>% 
+  group_by(year) %>% 
+  slice_max(n, n=10)  %>% 
+  ggplot(aes(x = n , y = reorder(distributor, n))) +
+  geom_col(fill= "#bd9702")+
+  labs(title= "Number of Emmys",
+       subtitle = "Year: {frame_time}",
+       x="",
+       y="Distributor",
+       caption="Ben Wagner | Data: Emmys / Emmys.com ")+
+  transition_time(as.integer(year))+
+  My_theme
+
+animate(nominees_anim, duration = 20)
+```
+
+
+<!-- This entry highlights my Tidy Tuesday submission for the week of October 5! There was a problem with the latest dataset on Github, so I just resorted to an older file. Thus, I created my vis using the Emmy Awards data provided by [emmys.com](https://www.emmys.com/awards/nominations/award-search) -->
+
+<!-- This weeks visualization highlights the major distributors and the number of Emmys they win each year. I created an animated bar plot to show how many Emmys each group won from 2000-2021, excluding 2014 for a lack of data. To accomplish this goal, I first grouped the dataset by distributor and year, then counted the number of occurrences each distributor made in that year. I felt that an animation was beneficial, rather than faceting, because you can see the change in success as the age of streaming movies/TV has taken over the world. -->
+
+<!-- If you liked this week's viz, please go like or even retweet on my [twitter post](). I'd love to show my visualizations to as many people as possible, so your support is very much appreciated. Also if you'd like to see my source code, use this link to my [Github](https://github.com/bennywags15/Tidy_Tuesday/blob/main/Tidy%20Tuesday/tidy_tuesdayOct5.Rmd)! -->
+
+

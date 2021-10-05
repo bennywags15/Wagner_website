@@ -1,5 +1,22 @@
 [
   {
+    "path": "Posts/2021-10-05-emmytidytues/",
+    "title": "Tidy Tuesday: Emmys (Oct. 5)",
+    "description": "My Tidy Tuesday Submission for Week 41",
+    "author": [
+      {
+        "name": "Ben Wagner",
+        "url": {}
+      }
+    ],
+    "date": "2021-10-05",
+    "categories": [],
+    "contents": "\r\n\r\n\r\n\r\n\r\n\r\n    Downloading file 1 of 1: `nominees.csv`\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "preview": "Posts/2021-10-05-emmytidytues/Emmy_logo.jpg",
+    "last_modified": "2021-10-05T12:25:54-05:00",
+    "input_file": {}
+  },
+  {
     "path": "Posts/2021-09-21-tidy-tuesday-billboard-top-100-sept-22/",
     "title": "Tidy Tuesday: Billboard Top 100 (Sept. 21)",
     "description": "My Tidy Tuesday submission for Week 39",

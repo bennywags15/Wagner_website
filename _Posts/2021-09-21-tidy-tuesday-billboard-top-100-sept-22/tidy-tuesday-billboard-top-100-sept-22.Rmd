@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```{r}
 knitr::include_graphics("C:\\Users\\littl\\OneDrive\\Documents\\Advanced Data Sci\\Wagner_website\\_Posts\\2021-09-21-tidy-tuesday-billboard-top-100-sept-22\\Tidy_Tuesday_Sept21.png")
-```
+``` 
 
   I'm super excited to publish my first blog post on my website! This entry highlights my Tidy Tuesday submission for the week of September 21st. This week's dataset contains information on the weekly Billboard Top 100 songs and each song's audio features. The data comes from Data.World, scraped by Sean Miller on Billboard and Spotify. 
 
