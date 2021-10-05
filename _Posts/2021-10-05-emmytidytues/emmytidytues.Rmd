@@ -80,6 +80,6 @@ This entry highlights my Tidy Tuesday submission for the week of October 5! Ther
 
 This weeks visualization highlights the major distributors and the number of Emmys they win each year. I created an animated bar plot to show how many Emmys each group won from 2000-2021, excluding 2014 for a lack of data. To accomplish this goal, I first grouped the dataset by distributor and year, then counted the number of occurrences each distributor made in that year. I felt that an animation was beneficial, rather than faceting, because you can see the change in success as the age of streaming movies/TV has taken over the world.
 
-If you liked this week's viz, please go like or even retweet on my [twitter post](). I'd love to show my visualizations to as many people as possible, so your support is very much appreciated. Also if you'd like to see my source code, use this link to my [Github](https://github.com/bennywags15/Tidy_Tuesday/blob/main/Tidy%20Tuesday/tidy_tuesdayOct5.Rmd)!
+If you liked this week's viz, please go like or even retweet on my [twitter post](https://twitter.com/BenWagnerDS/status/1445463898451169284). I'd love to show my visualizations to as many people as possible, so your support is very much appreciated. Also if you'd like to see my source code, use this link to my [Github](https://github.com/bennywags15/Tidy_Tuesday/blob/main/Tidy%20Tuesday/tidy_tuesdayOct5.Rmd)!
 
 

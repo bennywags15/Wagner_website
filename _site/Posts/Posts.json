@@ -13,7 +13,7 @@
     "categories": [],
     "contents": "\r\n\r\n\r\n    Downloading file 1 of 1: `nominees.csv`\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nThis entry highlights my Tidy Tuesday submission for the week of October 5! There was a problem with the latest dataset on Github, so I just resorted to an older file. Thus, I created my vis using the Emmy Awards data provided by emmys.com\r\nThis weeks visualization highlights the major distributors and the number of Emmys they win each year. I created an animated bar plot to show how many Emmys each group won from 2000-2021, excluding 2014 for a lack of data. To accomplish this goal, I first grouped the dataset by distributor and year, then counted the number of occurrences each distributor made in that year. I felt that an animation was beneficial, rather than faceting, because you can see the change in success as the age of streaming movies/TV has taken over the world.\r\nIf you liked this week’s viz, please go like or even retweet on my twitter post. I’d love to show my visualizations to as many people as possible, so your support is very much appreciated. Also if you’d like to see my source code, use this link to my Github!\r\n\r\n\r\n\r\n",
     "preview": "Posts/2021-10-05-emmytidytues/Emmy_logo.jpg",
-    "last_modified": "2021-10-05T13:54:17-05:00",
+    "last_modified": "2021-10-05T14:01:33-05:00",
     "input_file": {}
   },
   {
