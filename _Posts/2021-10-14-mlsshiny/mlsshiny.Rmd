@@ -1,0 +1,29 @@
+---
+title: "2021 MLS Visual Summary"
+description: |
+  A simple shiny app showing MLS team statistics for the 2021 season.
+author:
+  - name: Ben Wagner
+    url: {}
+date: 10-14-2021
+preview: MLS logos.jpg
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, fig.align='center'}
+knitr::include_graphics("C:\\Users\\littl\\OneDrive\\Documents\\Advanced Data Sci\\Wagner_website\\_Posts\\2021-10-14-mlsshiny\\mnufc.jpg")
+``` 
+
+
+
+This post highlights my [Shiny app](https://benwagnerds.shinyapps.io/MLS_2021_Team_Data/?_ga=2.146834303.972450370.1634230924-1349152735.1634230924) creation for my Advanced Data Science class. The app shows the user simple summary statistics of the 27 Major League Soccer teams during for the most recently season (2021). The dropdown menu allows the user to choose 1 of 11 stats, including Goals For, Expected Goals, or Expected Points. This data was provided by one of my favorite websites, [American Soccer Analysis](https://www.americansocceranalysis.com/).
+
+I plan to continue to updgrade this app with other visual and user friendly features. However, for the sake of a deadline, I had to keep the app simple. Feel free to check in again in the next coming months to see the finished product. Here is the link to my [Github](https://github.com/bennywags15/Assignen_4_Shiny/blob/main/app/app.R) to see the code for the app! 
+
