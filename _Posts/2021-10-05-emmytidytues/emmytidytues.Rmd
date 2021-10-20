@@ -17,7 +17,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE, fig.height = 5)
 ```
 
-```{r}
+```{r results='hide'}
 library(tidytuesdayR)
 library(tidyverse)
 library(ggplot2)
