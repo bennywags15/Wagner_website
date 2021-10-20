@@ -13,7 +13,7 @@
     "categories": [],
     "contents": "\r\n\r\n\r\n\r\n\r\n\r\n\r\nThis entry highlights my Tidy Tuesday submission for the week of October 20! I created my vis using the Giant Pumpkins data provided by BigPumpkins.com\r\nThis weeks visualization highlights the states which harvested and submitted the greatest amount of watermelons in GPC’s competition. I initially wanted to show the states that harvested the most Giant Pumpkins, but I was finding too many missing observations for weight in pounds of each pumpkin. I first created a map containing all of the United States, then made sure each of the states listed in the Pumpkins dataset had the same spelling as my map. To find the amount of watermelons harvested in each state, I grouped the data by state and created a new variable containing the sum of each watermelon from that state. Finallly I created my ggplot map and filled each state by my new variable.\r\nIf you liked this week’s viz, please go like or even retweet on my twitter post. I’d love to show my visualizations to as many people as possible, so your support is very much appreciated. Also if you’d like to see my source code, use this link to my Github!\r\n\r\n\r\n\r\n",
     "preview": "Posts/2021-10-20-tidytuesbigpumpkin/watermelon.jpg",
-    "last_modified": "2021-10-20T15:20:01-05:00",
+    "last_modified": "2021-10-20T15:25:51-05:00",
     "input_file": {}
   },
   {
