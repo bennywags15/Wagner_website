@@ -1,0 +1,65 @@
+---
+title: "Tidy Tuesday: Giant Watermelons (Oct. 20)"
+description: |
+  My Tidy Tuesday Submission for Week 43
+author:
+  - name: Ben Wagner
+    url: {}
+date: 10-20-2021
+preview: watermelon.jpg
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r results='hide'}
+library(tidytuesdayR)
+library(tidyverse)
+library(ggplot2)
+library(maps) 
+library(ggmap)
+library(ggthemes)
+
+tuesdata <- tidytuesdayR::tt_load('2021-10-19')
+pumpkins <- tuesdata$pumpkins %>% 
+  mutate(weight_lbs = as.numeric(weight_lbs)) %>%
+  separate(id, c('year', 'type'))
+```
+
+```{r}
+states_map <- map_data("state")
+
+pumpkins %>% 
+  mutate(type = recode(type, "F" = "Field Pumpkin", "P" = "Giant Pumpkin", "S" = "Giant Squash", "W" = "Giant Watermelon", "L" = "Long Gourd", "T" = "Tomato"),
+         type = factor(type, levels = c("Tomato", "Long Gourd", "Field Pumpkin", "Giant Watermelon", "Giant Squash", "Giant Pumpkin"))) %>% 
+  
+  mutate(state_prov = str_to_lower(state_prov)) %>% 
+  filter(country=="United States", type == "Giant Watermelon", year ==2021) %>%   
+  group_by(state_prov) %>% 
+  mutate(state_weight= sum(weight_lbs)) %>%     
+  #summarise(state_prov, cum_state_weight)
+  ggplot() +
+  geom_map(map = states_map,
+           aes(map_id = state_prov,
+               fill = state_weight))+
+  expand_limits(x = states_map$long, y = states_map$lat) +
+  theme_map()+
+  labs(title = "Where did the Most Watermelons in GPC's 2021 competition come from?",
+       caption="Ben Wagner | Data: Giant Pumpkins / BigPumpkins.com" )+
+  scale_fill_continuous(name="Weight in Pounds", 
+            low = "lightgreen", high = "darkgreen")+
+  theme(panel.background = element_rect(fill ="#db467a"))
+
+```
+This entry highlights my Tidy Tuesday submission for the week of October 20! I created my vis using the Giant Pumpkins data provided by [BigPumpkins.com](http://www.bigpumpkins.com/ViewArticle.asp?id=132)
+
+
+This weeks visualization highlights the states which harvested and submitted the greatest amount of watermelons in GPC's competition. I initially wanted to show the states that harvested the most Giant Pumpkins, but I was finding too many missing observations for weight in pounds of each pumpkin. I first created a map containing all of the United States, then made sure each of the states listed in the Pumpkins dataset had the same spelling as my map. To find the amount of watermelons harvested in each state, I grouped the data by state and created a new variable containing the sum of each watermelon from that state. Finallly I created my ggplot map and filled each state by my new variable.  
+
+
+If you liked this week's viz, please go like or even retweet on my [twitter post](). I'd love to show my visualizations to as many people as possible, so your support is very much appreciated. Also if you'd like to see my source code, use this link to my [Github]()!
