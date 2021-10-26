@@ -1,0 +1,89 @@
+---
+title: "Tidy Tuesday: Ultra Trail Running"
+description: |
+  My Tidy Tuesday Submission for Week 44
+author:
+  - name: Ben Wagner
+    url: {}
+date: 10-26-2021
+preview: 
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{r results='hide'}
+library(tidytuesdayR)
+library(tidyverse)
+library(ggplot2)
+library(ggthemes)
+
+
+ultra_rankings <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-10-26/ultra_rankings.csv')
+race <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-10-26/race.csv')
+
+```
+
+```{r}
+My_theme <- theme(
+  #titles
+  plot.title=element_text(hjust=0.5, size=14, color="#ddff00"),
+  plot.title.position = "plot",
+  plot.subtitle=element_text(size=8, color="#ffffff", hjust=0.5),
+  #plot.subtitle.position = "plot",
+  plot.caption = element_text(color = "#ddff00"),
+  plot.caption.position = "panel",
+
+  #background
+  panel.border=element_blank(),
+  panel.background = element_rect(fill = "#363636"),
+  plot.background = element_rect(fill = "#363636"),
+  plot.margin=ggplot2::margin(0.5, 0.5, 0.5, 0.5, "in"),
+  #axes
+  axis.ticks.length=unit(0.15, "cm"),
+  axis.ticks = element_blank(),
+  axis.line = element_blank(),
+  axis.text = element_text(size=6, color="#ffffff"),
+  axis.title.x = element_text(color = "#ffffff"),
+  axis.title.y = element_text(color = "#ffffff"),
+  #no legend
+  legend.position = "top",
+  legend.background = element_rect(fill = "#363636"),
+  legend.key = element_rect(fill = "#363636"),
+  legend.text = element_text(color = "#ffffff"),
+  legend.title = element_text(color = "#ffffff"))
+
+
+
+ultra_rankings %>% 
+  full_join(race, "race_year_id") %>% 
+  filter(rank==1) %>%
+  filter(nationality == c("USA", "GBR", "FRA")) %>% 
+  group_by(age, nationality) %>%
+  filter(age >2) %>% 
+  count() %>% 
+  ggplot(aes(x=age, y=n, color=nationality))+
+  geom_line()+
+  ylim(0, 15)+
+  scale_color_manual(values=c("#1695c7", "#ffffff", "#cc1d37"))+
+  labs(y= "Number of Runners",
+       x= "Age",
+    title = "Age of #1 Ranked Runners from the 3 Fastest Countries",
+    subtitle = "Each line represents the number of runners for each age with respect to the runner's nationality",
+       caption="Ben Wagner | Data: Ultra Trail Running / International Trail Running Association (ITRA)")+
+  My_theme
+  
+```
+
+This entry highlights my Tidy Tuesday submission for the week of October 26th! I created my vis using the Ultra Trail Running data provided by [International Trail Running Association (ITRA)](https://itra.run/Races/FindRaceResults)
+
+
+This week, I wanted to highlight the winners of the races shown in the dataset. Thus, I filtered by rank 1. Before anything else, I wanted to see how many winners were from each nationality in the dataset, so I grouped by nationality and counted each occurence. I found that the United States, Great Britain, and France had the largest number of winners. So I filtered the dataset by only those 3 nationalities. From there I counted the number of occurences of each nationality at each age and plotted them on a line graph (grouped by nationality to show 3 different winner trends).    
+
+I'd love to show my visualizations to as many people as possible, so your support is very much appreciated. If you'd like to see my source code, use this link to my [Github]()!

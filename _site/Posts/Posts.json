@@ -1,5 +1,22 @@
 [
   {
+    "path": "Posts/2021-10-26-ultratrailrunning/",
+    "title": "Tidy Tuesday: Ultra Trail Running",
+    "description": "My Tidy Tuesday Submission for Week 44",
+    "author": [
+      {
+        "name": "Ben Wagner",
+        "url": {}
+      }
+    ],
+    "date": "2021-10-26",
+    "categories": [],
+    "contents": "\r\n\r\n\r\n\r\n\r\n\r\n\r\nThis entry highlights my Tidy Tuesday submission for the week of October 26th! I created my vis using the Ultra Trail Running data provided by International Trail Running Association (ITRA)\r\nThis week, I wanted to highlight the winners of the races shown in the dataset. Thus, I filtered by rank 1. Before anything else, I wanted to see how many winners were from each nationality in the dataset, so I grouped by nationality and counted each occurence. I found that the United States, Great Britain, and France had the largest number of winners. So I filtered the dataset by only those 3 nationalities. From there I counted the number of occurences of each nationality at each age and plotted them on a line graph (grouped by nationality to show 3 different winner trends).\r\nI’d love to show my visualizations to as many people as possible, so your support is very much appreciated. If you’d like to see my source code, use this link to my Github!\r\n\r\n\r\n\r\n",
+    "preview": "Posts/2021-10-26-ultratrailrunning/ultratrailrunning_files/figure-html5/unnamed-chunk-2-1.png",
+    "last_modified": "2021-10-26T12:30:22-05:00",
+    "input_file": {}
+  },
+  {
     "path": "Posts/2021-10-20-tidytuesbigpumpkin/",
     "title": "Tidy Tuesday: Giant Watermelons (Oct. 20)",
     "description": "My Tidy Tuesday Submission for Week 43",
