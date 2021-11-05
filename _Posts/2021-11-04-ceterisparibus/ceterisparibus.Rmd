@@ -6,7 +6,7 @@ author:
   - name: Ben Wagner
     url: {}
 date: 11-04-2021
-#preview: Shiny_app.jpg
+preview: Shiny_app.jpg
 output:
   distill::distill_article:
     self_contained: false
