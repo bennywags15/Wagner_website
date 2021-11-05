@@ -1,0 +1,24 @@
+---
+title: "Ceteris Paribus Profile"
+description: |
+  My Lending Club Shiny app showing the probability of a loan getting fully paid back.
+author:
+  - name: Ben Wagner
+    url: {}
+date: 11-04-2021
+#preview: Shiny_app.jpg
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+This is my [Lending Club Shiny App](https://benwagnerds.shinyapps.io/lending_small/?_ga=2.202707218.2090513278.1636045043-1349152735.1634230924)! The app takes in multiple variables including Annual Income, Interest Rate, and Number of Accounts Delinquent in order to show the probability of the loan being paid back in full. This probability is found using a predictive random forest model which I created. Big thanks to Lisa Lendway for helping me with this Shiny app. 
+
+In order to make sure that the app was my own, I changed the color scheme and overall theme of the app. I used the "Lux" theme coming from the bslib library and made a color scheme of dark and light pink. If you would like to see the source code, check out my [Github](https://github.com/bennywags15/lending_small).
+
