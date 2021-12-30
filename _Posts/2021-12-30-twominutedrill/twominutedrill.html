@@ -1,0 +1,6165 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+
+  <!--radix_placeholder_meta_tags-->
+  <title>2-Minute Drill: Understanding the Importance</title>
+
+  <meta property="description" itemprop="description" content="This project dives deeper into the statistical importance of the football strategy known as the &quot;2-Minute Drill&quot;. What makes a drive at the end of a half or game so tricky? How can teams effectively increase the chance of success when driving down the field with little time remaining?"/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-12-30"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-12-30"/>
+  <meta name="article:author" content="Ben Wagner &amp; Anthony Palma"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="2-Minute Drill: Understanding the Importance"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="This project dives deeper into the statistical importance of the football strategy known as the &quot;2-Minute Drill&quot;. What makes a drive at the end of a half or game so tricky? How can teams effectively increase the chance of success when driving down the field with little time remaining?"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="2-Minute Drill: Understanding the Importance"/>
+  <meta property="twitter:description" content="This project dives deeper into the statistical importance of the football strategy known as the &quot;2-Minute Drill&quot;. What makes a drive at the end of a half or game so tricky? How can teams effectively increase the chance of success when driving down the field with little time remaining?"/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","preview","output"]}},"value":[{"type":"character","attributes":{},"value":["2-Minute Drill: Understanding the Importance"]},{"type":"character","attributes":{},"value":["This project dives deeper into the statistical importance of the football strategy known as the \"2-Minute Drill\". What makes a drive at the end of a half or game so tricky? How can teams effectively increase the chance of success when driving down the field with little time remaining?\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Ben Wagner & Anthony Palma"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["2021-12-30"]},{"type":"character","attributes":{},"value":["Brady.jpg"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["Brady.jpg","Nat_Champ_Pic.jpeg","twominutedrill_files/anchor-4.2.2/anchor.min.js","twominutedrill_files/bowser-1.9.3/bowser.min.js","twominutedrill_files/distill-2.2.21/template.v2.js","twominutedrill_files/figure-html5/unnamed-chunk-19-1.png","twominutedrill_files/figure-html5/unnamed-chunk-24-1.png","twominutedrill_files/figure-html5/unnamed-chunk-29-1.png","twominutedrill_files/figure-html5/unnamed-chunk-30-1.png","twominutedrill_files/figure-html5/unnamed-chunk-42-1.png","twominutedrill_files/figure-html5/unnamed-chunk-43-1.png","twominutedrill_files/figure-html5/unnamed-chunk-7-1.png","twominutedrill_files/figure-html5/unnamed-chunk-8-1.png","twominutedrill_files/figure-html5/unnamed-chunk-9-1.png","twominutedrill_files/header-attrs-2.11/header-attrs.js","twominutedrill_files/jquery-3.6.0/jquery-3.6.0.js","twominutedrill_files/jquery-3.6.0/jquery-3.6.0.min.js","twominutedrill_files/jquery-3.6.0/jquery-3.6.0.min.map","twominutedrill_files/kePrint-0.0.1/kePrint.js","twominutedrill_files/lightable-0.0.1/lightable.css","twominutedrill_files/popper-2.6.0/popper.min.js","twominutedrill_files/tippy-6.2.7/tippy-bundle.umd.min.js","twominutedrill_files/tippy-6.2.7/tippy-light-border.css","twominutedrill_files/tippy-6.2.7/tippy.css","twominutedrill_files/tippy-6.2.7/tippy.umd.min.js","twominutedrill_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="twominutedrill_files/header-attrs-2.11/header-attrs.js"></script>
+  <script src="twominutedrill_files/kePrint-0.0.1/kePrint.js"></script>
+  <link href="twominutedrill_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
+  <script src="twominutedrill_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <script src="twominutedrill_files/popper-2.6.0/popper.min.js"></script>
+  <link href="twominutedrill_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="twominutedrill_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="twominutedrill_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="twominutedrill_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="twominutedrill_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="twominutedrill_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="twominutedrill_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"2-Minute Drill: Understanding the Importance","description":"This project dives deeper into the statistical importance of the football strategy known as the \"2-Minute Drill\". What makes a drive at the end of a half or game so tricky? How can teams effectively increase the chance of success when driving down the field with little time remaining?","authors":[{"author":"Ben Wagner & Anthony Palma","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-30T00:00:00.000-06:00","citationText":"Palma, 2021"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>2-Minute Drill: Understanding the Importance</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>This project dives deeper into the statistical importance of the football strategy known as the “2-Minute Drill”. What makes a drive at the end of a half or game so tricky? How can teams effectively increase the chance of success when driving down the field with little time remaining?</p></p>
+</div>
+
+<div class="d-byline">
+  Ben Wagner &amp; Anthony Palma true 
+  
+<br/>2021-12-30
+</div>
+
+<div class="d-article">
+<h1 id="introduction">Introduction</h1>
+<p>If you ever want to watch the greatest minds of the football world prove that they are elite, look no further than a close game with 2 minutes or less left on the clock. The “2-minute Drill” has been a staple tactic employed by teams for almost as long as the game has been around. Wikipedia defines this style of hurry-up offense as a “high-pressure and fast-paced situational strategy where a team will focus on clock management, maximizing the number of plays available for a scoring attempt before a half (or game) expires.” When teams perform the 2-minute drill, you should expect them to manage the clock using timeouts and plays that eliminate a running clock. You can expect a two minute drill drive in about 1 in 5 games, so it makes sense why these drives are so important.</p>
+<p>Here you can see the number of drives that began under 2 minutes and 30 seconds left in the first or second halves from 2018 to today. As you can see, it is not too often that a team successfully completes a drive by scoring points. Just more than 21% of the time, teams have scored at least 3 points by kicking a field goal. While only 10% of the time, teams have reached the endzone for 6.</p>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="5">
+<div style="TRUE">
+Two Minute Drill Success Rates
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+Number of TD’s Scored
+</th>
+<th style="text-align:right;">
+Number of FG’s Scored
+</th>
+<th style="text-align:right;">
+Number of Drives
+</th>
+<th style="text-align:right;">
+TD Success Rate
+</th>
+<th style="text-align:right;">
+FG Success Rate
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+65
+</td>
+<td style="text-align:right;">
+332
+</td>
+<td style="text-align:right;">
+0.1355422
+</td>
+<td style="text-align:right;">
+0.1957831
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="6">
+<div style="TRUE">
+2-minute Drills in the last 4 Seasons
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+season
+</th>
+<th style="text-align:right;">
+Number of TD’s Scored
+</th>
+<th style="text-align:right;">
+Number of FG’s Scored
+</th>
+<th style="text-align:right;">
+Number of Drives
+</th>
+<th style="text-align:right;">
+TD Success Rate
+</th>
+<th style="text-align:right;">
+FG Success Rate
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2018
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+78
+</td>
+<td style="text-align:right;">
+0.1025641
+</td>
+<td style="text-align:right;">
+0.2307692
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:right;">
+0.1590909
+</td>
+<td style="text-align:right;">
+0.1590909
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2020
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:right;">
+0.1704545
+</td>
+<td style="text-align:right;">
+0.2045455
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2021
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+78
+</td>
+<td style="text-align:right;">
+0.1025641
+</td>
+<td style="text-align:right;">
+0.1923077
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Now why should we take a look at this specific aspect of football? A successful 2-minute drill could have massive impacts on the probability of the team winning the game. Let me remind you of week 10 in 2020. The Buffalo Bills drove the length of the field, managing their own two minute drill. Josh Allen and the Bills capped off the drive by finding the endzone when Allen slung a beautiful 40 yard dot to his favorite target Stefon Diggs with just over 30 seconds left in the game. There was a 90% probability that the Bills had just secured the win, but the Cardinals had other plans.</p>
+<p>In a mere 3 plays, the Cardinals marched down to the 43 yard line in Bills territory. The rest will go down as one of the greatest plays in NFL history. Murray scrambles out of the pocket and heaves one down the field to a triple teamed DeAndre Hopkins who reaches up and snags the Bills hopes. Although a little luck was involved in this drive, the Cardinals effectively managed the amount of time they were given and won the game despite the statistics. That is what a great two minute drill drive can do for a team any given week.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="C:/Users/littl/OneDrive/Documents/Advanced%20Data%20Sci/Stat-456-Final-Project/DeandreCatch.jpg" width="1216" style="display: block; margin: auto;" /></p>
+</div>
+<p>Here we can see the quarterbacks that have the best rate of scoring either a field goal or a touchdown over the past 4 seasons. Those closer to the top right show us that they are efficient when the clock strike below 2.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="twominutedrill_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+</div>
+<p>There are few positions that require such a responsibility as an NFL Quarterback. The only other position in team sports that stand out to me is an MLB Pitcher. As you can see from these two plots, the better the QB plays that week, the higher probability the team has at completing that 2-minute drill with new points on the board. Every decision a Quarterback makes during those final 2 minutes could have massive repercussions, so its important the team has the right guy for the job.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="twominutedrill_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="twominutedrill_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
+</div>
+<p>We will explore the relationship between football stats in our set and the score outcome of two minute drills from the 2018 - 2021 seasons.</p>
+<p>We will do so using primarily a logistic regression and will also explore random forests and boosted trees to ensure we explored all other options.</p>
+<h1 id="modeling">Modeling</h1>
+<h2 id="lasso-logisitic-regression">Lasso Logisitic Regression</h2>
+<p>Our primary model we will be focusing on is a Logistic Regression. This model specializes in predicting probabilities of our outcome, not just the outcome. That way with this model, we can not only see whether it predicts a score or not but we can see and have access to the probabilities it used to predict the outcome.</p>
+<p>When creating this model, we will be using a Lasso approach which stands for “Least Absolute Shrinkage and Selection Operator.” In short, this type of modeling selects variables and their impact size while taking into account maximizing the accuracy and interpretability of the model.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>Below are the results of our 5 fold cross validation from our modeling. In short, we separated the data into two groups: one to build the model off (75%) and the other to test and see how well the model works.</p>
+<p>Each fold is using a different part of the 75% of the training set to build the model and testing upon the rest. This is done over and over and over to amass tons of data on the best logistic regression model.</p>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="6">
+<div style="TRUE">
+Lasso Log Reg Models Performance
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+id
+</th>
+<th style="text-align:right;">
+penalty
+</th>
+<th style="text-align:left;">
+.metric
+</th>
+<th style="text-align:left;">
+.estimator
+</th>
+<th style="text-align:right;">
+.estimate
+</th>
+<th style="text-align:left;">
+.config
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Fold1
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7400000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold1
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7400000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold1
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7400000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model03
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold1
+</td>
+<td style="text-align:right;">
+0.0000002
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7400000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model04
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold1
+</td>
+<td style="text-align:right;">
+0.0000028
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7400000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model05
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold1
+</td>
+<td style="text-align:right;">
+0.0000359
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7400000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold1
+</td>
+<td style="text-align:right;">
+0.0004642
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7400000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model07
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold1
+</td>
+<td style="text-align:right;">
+0.0059948
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7400000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model08
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold1
+</td>
+<td style="text-align:right;">
+0.0774264
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7200000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model09
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold1
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.4400000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold2
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8600000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold2
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8600000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold2
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8600000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model03
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold2
+</td>
+<td style="text-align:right;">
+0.0000002
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8600000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model04
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold2
+</td>
+<td style="text-align:right;">
+0.0000028
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8600000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model05
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold2
+</td>
+<td style="text-align:right;">
+0.0000359
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8600000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold2
+</td>
+<td style="text-align:right;">
+0.0004642
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8600000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model07
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold2
+</td>
+<td style="text-align:right;">
+0.0059948
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8400000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model08
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold2
+</td>
+<td style="text-align:right;">
+0.0774264
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8200000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model09
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold2
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.6600000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold3
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8800000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold3
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8800000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold3
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8800000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model03
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold3
+</td>
+<td style="text-align:right;">
+0.0000002
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8800000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model04
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold3
+</td>
+<td style="text-align:right;">
+0.0000028
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8800000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model05
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold3
+</td>
+<td style="text-align:right;">
+0.0000359
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8800000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold3
+</td>
+<td style="text-align:right;">
+0.0004642
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8800000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model07
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold3
+</td>
+<td style="text-align:right;">
+0.0059948
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8800000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model08
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold3
+</td>
+<td style="text-align:right;">
+0.0774264
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8800000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model09
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold3
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7800000
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold4
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8163265
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold4
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8163265
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold4
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8163265
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model03
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold4
+</td>
+<td style="text-align:right;">
+0.0000002
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8163265
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model04
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold4
+</td>
+<td style="text-align:right;">
+0.0000028
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8163265
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model05
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold4
+</td>
+<td style="text-align:right;">
+0.0000359
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8163265
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold4
+</td>
+<td style="text-align:right;">
+0.0004642
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8163265
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model07
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold4
+</td>
+<td style="text-align:right;">
+0.0059948
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8367347
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model08
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold4
+</td>
+<td style="text-align:right;">
+0.0774264
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8163265
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model09
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold4
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.3469388
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold5
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7755102
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold5
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7755102
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold5
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7755102
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model03
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold5
+</td>
+<td style="text-align:right;">
+0.0000002
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7755102
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model04
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold5
+</td>
+<td style="text-align:right;">
+0.0000028
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7755102
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model05
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold5
+</td>
+<td style="text-align:right;">
+0.0000359
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7755102
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold5
+</td>
+<td style="text-align:right;">
+0.0004642
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7755102
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model07
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold5
+</td>
+<td style="text-align:right;">
+0.0059948
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7755102
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model08
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold5
+</td>
+<td style="text-align:right;">
+0.0774264
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7346939
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model09
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fold5
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.6938776
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Those different folds and their resulting accuracies were also used to try out different penalty parameters for lasso, which in this case helps to determine what the insignificance cut off is for throwing out “indeterminate” variables. The accuracies appear to be quite high for most penalties.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="twominutedrill_files/figure-html5/unnamed-chunk-19-1.png" width="624" /></p>
+</div>
+<p>The goal of modeling is to extract our most accurate model and its associated penalty so that we can finalize the model and interpret some meaning.</p>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="7">
+<div style="TRUE">
+Lasso Log Reg Best Accuracy Models
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+penalty
+</th>
+<th style="text-align:left;">
+.metric
+</th>
+<th style="text-align:left;">
+.estimator
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+n
+</th>
+<th style="text-align:right;">
+std_err
+</th>
+<th style="text-align:left;">
+.config
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0.0059948
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8144490
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.0250053
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model08
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8143673
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.0259174
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model01
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8143673
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.0259174
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model02
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8143673
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.0259174
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model03
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.0000002
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8143673
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.0259174
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model04
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The best penalty which maximized our accuracy is below and will be directly input to finalize our model.</p>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="TRUE">
+Lasso Log Reg Best Model
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+penalty
+</th>
+<th style="text-align:left;">
+.config
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0.0059948
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>== Workflow ==========================================================
+Preprocessor: Recipe
+Model: logistic_reg()
+
+-- Preprocessor ------------------------------------------------------
+3 Recipe Steps
+
+* step_upsample()
+* step_dummy()
+* step_normalize()
+
+-- Model -------------------------------------------------------------
+Logistic Regression Model Specification (classification)
+
+Main Arguments:
+  penalty = 0.00599484250318942
+  mixture = 1
+
+Computational engine: glmnet </code></pre>
+</div>
+<p>Now for some interpretation and meaning….below we have the coefficients of each variable from the logistic regression. While normally in log odds form, we exponentiated the variable coefficients to now have them in an odds and odds ratio form, a much more interpretable style.</p>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="TRUE">
+Lasso Log Reg Finalized Model Coefficients
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+term
+</th>
+<th style="text-align:right;">
+estimate
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+0.8656817
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+qbr_raw
+</td>
+<td style="text-align:right;">
+1.2605909
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+qbr_total
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pass_tot_yds
+</td>
+<td style="text-align:right;">
+0.8578689
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tot_yds
+</td>
+<td style="text-align:right;">
+1.0207665
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ydsnet
+</td>
+<td style="text-align:right;">
+13.4394059
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rush_yds_tot
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+completion_perc
+</td>
+<td style="text-align:right;">
+0.9992010
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+run_plays
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pass_plays
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+drive_yards_penalized
+</td>
+<td style="text-align:right;">
+1.2622421
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+drive_game_clock_start
+</td>
+<td style="text-align:right;">
+0.9124922
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+yards_to_go_start
+</td>
+<td style="text-align:right;">
+0.2424558
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Above, you can see the logistic regression model output for all of our variables and their coefficients.</p>
+<p>Generally, if a coefficient is above one (1) it shows a positive impact upon the likelihood of a two minute drill drive resulting in success.<br />
+A coefficient value of one (1) indicates no change. And a coefficient value of less than one (1) means an increase in that variable results in a lesser chance of scoring.</p>
+<p>Variables that <strong>positively</strong> impact the likelihood of scoring:</p>
+<ul>
+<li>qbr raw</li>
+<li>total yards</li>
+<li>yards net – <strong>LARGEST positive impact upon score outcome</strong></li>
+<li>total rush yards</li>
+<li>drive yards penalized</li>
+</ul>
+<p>Variables that <strong>negatively</strong> impact the likelihood of scoring:</p>
+<ul>
+<li>total pass yards</li>
+<li>run plays</li>
+<li>drive game clock</li>
+<li>yards to go – <strong>LARGEST negative impact upon score outcome</strong></li>
+</ul>
+<p>You can see the result of yards net having the largest impact upon score outcome in the Variable Importance plot below.</p>
+<p>The massive positive impact upon score outcome is nearly matched by the massive negative impact upon scoring derived from the yards to go variable, which had the largest negatively correlated variable coefficient above.</p>
+<p>You may notice more variables included on the VI plot than coefficients above. That is because the lasso approach regularized and shrunk the least contributing variables coefficients to basically zero, as seen with these additional variables being quite unimportant to predicting score outcome.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="twominutedrill_files/figure-html5/unnamed-chunk-24-1.png" width="624" /></p>
+</div>
+<p>Our best fitting model was quite well in prediction with a strong 86% accuracy. Additionally, its ROC AUC, or the area under the curve, is quite high as well at 88% denoting a high level of confidence that the model will be able to distinguish between the score and no score class (88% confident to be exact).</p>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4">
+<div style="TRUE">
+Lasso Log Reg Best Model Accuracy and ROC
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+.metric
+</th>
+<th style="text-align:left;">
+.estimator
+</th>
+<th style="text-align:right;">
+.estimate
+</th>
+<th style="text-align:left;">
+.config
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7976190
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+roc_auc
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8928571
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We can dig a bit deeper into how well the model predicts by looking at how the model predicts on certain specific instances from our testing set. Along with predicted class and actual class, you can also see the probability associated with each class leading to the prediction, with 50% as the threshold.</p>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="7">
+<div style="TRUE">
+Lasso Log Reg Model Predictions
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+id
+</th>
+<th style="text-align:right;">
+.pred_0
+</th>
+<th style="text-align:right;">
+.pred_1
+</th>
+<th style="text-align:right;">
+.row
+</th>
+<th style="text-align:left;">
+.pred_class
+</th>
+<th style="text-align:left;">
+score
+</th>
+<th style="text-align:left;">
+.config
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9640260
+</td>
+<td style="text-align:right;">
+0.0359740
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9732424
+</td>
+<td style="text-align:right;">
+0.0267576
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.5859085
+</td>
+<td style="text-align:right;">
+0.4140915
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9437801
+</td>
+<td style="text-align:right;">
+0.0562199
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.0770452
+</td>
+<td style="text-align:right;">
+0.9229548
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.2627125
+</td>
+<td style="text-align:right;">
+0.7372875
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9900497
+</td>
+<td style="text-align:right;">
+0.0099503
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.8665691
+</td>
+<td style="text-align:right;">
+0.1334309
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.0437545
+</td>
+<td style="text-align:right;">
+0.9562455
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.4207155
+</td>
+<td style="text-align:right;">
+0.5792845
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.2940966
+</td>
+<td style="text-align:right;">
+0.7059034
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9339000
+</td>
+<td style="text-align:right;">
+0.0661000
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.0703400
+</td>
+<td style="text-align:right;">
+0.9296600
+</td>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.0453868
+</td>
+<td style="text-align:right;">
+0.9546132
+</td>
+<td style="text-align:right;">
+64
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.8800837
+</td>
+<td style="text-align:right;">
+0.1199163
+</td>
+<td style="text-align:right;">
+65
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9410727
+</td>
+<td style="text-align:right;">
+0.0589273
+</td>
+<td style="text-align:right;">
+68
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.5638419
+</td>
+<td style="text-align:right;">
+0.4361581
+</td>
+<td style="text-align:right;">
+71
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9879537
+</td>
+<td style="text-align:right;">
+0.0120463
+</td>
+<td style="text-align:right;">
+74
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9095917
+</td>
+<td style="text-align:right;">
+0.0904083
+</td>
+<td style="text-align:right;">
+78
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9986199
+</td>
+<td style="text-align:right;">
+0.0013801
+</td>
+<td style="text-align:right;">
+82
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.3986212
+</td>
+<td style="text-align:right;">
+0.6013788
+</td>
+<td style="text-align:right;">
+84
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.5877888
+</td>
+<td style="text-align:right;">
+0.4122112
+</td>
+<td style="text-align:right;">
+86
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.2152162
+</td>
+<td style="text-align:right;">
+0.7847838
+</td>
+<td style="text-align:right;">
+90
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.0723483
+</td>
+<td style="text-align:right;">
+0.9276517
+</td>
+<td style="text-align:right;">
+91
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.0448962
+</td>
+<td style="text-align:right;">
+0.9551038
+</td>
+<td style="text-align:right;">
+102
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.1849738
+</td>
+<td style="text-align:right;">
+0.8150262
+</td>
+<td style="text-align:right;">
+107
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.7253247
+</td>
+<td style="text-align:right;">
+0.2746753
+</td>
+<td style="text-align:right;">
+108
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9991837
+</td>
+<td style="text-align:right;">
+0.0008163
+</td>
+<td style="text-align:right;">
+111
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9337336
+</td>
+<td style="text-align:right;">
+0.0662664
+</td>
+<td style="text-align:right;">
+121
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.4673016
+</td>
+<td style="text-align:right;">
+0.5326984
+</td>
+<td style="text-align:right;">
+122
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.6597570
+</td>
+<td style="text-align:right;">
+0.3402430
+</td>
+<td style="text-align:right;">
+129
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9602456
+</td>
+<td style="text-align:right;">
+0.0397544
+</td>
+<td style="text-align:right;">
+133
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.0705417
+</td>
+<td style="text-align:right;">
+0.9294583
+</td>
+<td style="text-align:right;">
+141
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9722851
+</td>
+<td style="text-align:right;">
+0.0277149
+</td>
+<td style="text-align:right;">
+142
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9392277
+</td>
+<td style="text-align:right;">
+0.0607723
+</td>
+<td style="text-align:right;">
+149
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.0472814
+</td>
+<td style="text-align:right;">
+0.9527186
+</td>
+<td style="text-align:right;">
+151
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.1221500
+</td>
+<td style="text-align:right;">
+0.8778500
+</td>
+<td style="text-align:right;">
+152
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.4002076
+</td>
+<td style="text-align:right;">
+0.5997924
+</td>
+<td style="text-align:right;">
+154
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9738012
+</td>
+<td style="text-align:right;">
+0.0261988
+</td>
+<td style="text-align:right;">
+155
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.8785670
+</td>
+<td style="text-align:right;">
+0.1214330
+</td>
+<td style="text-align:right;">
+160
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.1004549
+</td>
+<td style="text-align:right;">
+0.8995451
+</td>
+<td style="text-align:right;">
+164
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.8652678
+</td>
+<td style="text-align:right;">
+0.1347322
+</td>
+<td style="text-align:right;">
+169
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9832480
+</td>
+<td style="text-align:right;">
+0.0167520
+</td>
+<td style="text-align:right;">
+173
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.0636686
+</td>
+<td style="text-align:right;">
+0.9363314
+</td>
+<td style="text-align:right;">
+177
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9698480
+</td>
+<td style="text-align:right;">
+0.0301520
+</td>
+<td style="text-align:right;">
+180
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9658407
+</td>
+<td style="text-align:right;">
+0.0341593
+</td>
+<td style="text-align:right;">
+182
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.6698217
+</td>
+<td style="text-align:right;">
+0.3301783
+</td>
+<td style="text-align:right;">
+189
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.1771437
+</td>
+<td style="text-align:right;">
+0.8228563
+</td>
+<td style="text-align:right;">
+192
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.4492787
+</td>
+<td style="text-align:right;">
+0.5507213
+</td>
+<td style="text-align:right;">
+197
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9914737
+</td>
+<td style="text-align:right;">
+0.0085263
+</td>
+<td style="text-align:right;">
+201
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.6475561
+</td>
+<td style="text-align:right;">
+0.3524439
+</td>
+<td style="text-align:right;">
+205
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.7322905
+</td>
+<td style="text-align:right;">
+0.2677095
+</td>
+<td style="text-align:right;">
+206
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.5184468
+</td>
+<td style="text-align:right;">
+0.4815532
+</td>
+<td style="text-align:right;">
+207
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9936359
+</td>
+<td style="text-align:right;">
+0.0063641
+</td>
+<td style="text-align:right;">
+211
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.5370902
+</td>
+<td style="text-align:right;">
+0.4629098
+</td>
+<td style="text-align:right;">
+214
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.8521797
+</td>
+<td style="text-align:right;">
+0.1478203
+</td>
+<td style="text-align:right;">
+216
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.4968382
+</td>
+<td style="text-align:right;">
+0.5031618
+</td>
+<td style="text-align:right;">
+222
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.8277949
+</td>
+<td style="text-align:right;">
+0.1722051
+</td>
+<td style="text-align:right;">
+223
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9768771
+</td>
+<td style="text-align:right;">
+0.0231229
+</td>
+<td style="text-align:right;">
+224
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.2863538
+</td>
+<td style="text-align:right;">
+0.7136462
+</td>
+<td style="text-align:right;">
+236
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.8879658
+</td>
+<td style="text-align:right;">
+0.1120342
+</td>
+<td style="text-align:right;">
+239
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.0369594
+</td>
+<td style="text-align:right;">
+0.9630406
+</td>
+<td style="text-align:right;">
+241
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.0546965
+</td>
+<td style="text-align:right;">
+0.9453035
+</td>
+<td style="text-align:right;">
+243
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.0469425
+</td>
+<td style="text-align:right;">
+0.9530575
+</td>
+<td style="text-align:right;">
+254
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.5783051
+</td>
+<td style="text-align:right;">
+0.4216949
+</td>
+<td style="text-align:right;">
+260
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9562602
+</td>
+<td style="text-align:right;">
+0.0437398
+</td>
+<td style="text-align:right;">
+263
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.2790645
+</td>
+<td style="text-align:right;">
+0.7209355
+</td>
+<td style="text-align:right;">
+266
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9958274
+</td>
+<td style="text-align:right;">
+0.0041726
+</td>
+<td style="text-align:right;">
+270
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9864895
+</td>
+<td style="text-align:right;">
+0.0135105
+</td>
+<td style="text-align:right;">
+273
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9024911
+</td>
+<td style="text-align:right;">
+0.0975089
+</td>
+<td style="text-align:right;">
+279
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.8996745
+</td>
+<td style="text-align:right;">
+0.1003255
+</td>
+<td style="text-align:right;">
+285
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9929761
+</td>
+<td style="text-align:right;">
+0.0070239
+</td>
+<td style="text-align:right;">
+291
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9737378
+</td>
+<td style="text-align:right;">
+0.0262622
+</td>
+<td style="text-align:right;">
+295
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.0857039
+</td>
+<td style="text-align:right;">
+0.9142961
+</td>
+<td style="text-align:right;">
+298
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9614318
+</td>
+<td style="text-align:right;">
+0.0385682
+</td>
+<td style="text-align:right;">
+299
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9768009
+</td>
+<td style="text-align:right;">
+0.0231991
+</td>
+<td style="text-align:right;">
+304
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.5208938
+</td>
+<td style="text-align:right;">
+0.4791062
+</td>
+<td style="text-align:right;">
+318
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.9832017
+</td>
+<td style="text-align:right;">
+0.0167983
+</td>
+<td style="text-align:right;">
+319
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.1531777
+</td>
+<td style="text-align:right;">
+0.8468223
+</td>
+<td style="text-align:right;">
+321
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.0920780
+</td>
+<td style="text-align:right;">
+0.9079220
+</td>
+<td style="text-align:right;">
+325
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.8585376
+</td>
+<td style="text-align:right;">
+0.1414624
+</td>
+<td style="text-align:right;">
+327
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.0401372
+</td>
+<td style="text-align:right;">
+0.9598628
+</td>
+<td style="text-align:right;">
+329
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.1329296
+</td>
+<td style="text-align:right;">
+0.8670704
+</td>
+<td style="text-align:right;">
+330
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+train/test split
+</td>
+<td style="text-align:right;">
+0.1298200
+</td>
+<td style="text-align:right;">
+0.8701800
+</td>
+<td style="text-align:right;">
+332
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We can also look at our predictions in the aggregate with a matrixed table.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>          Truth
+Prediction  0  1
+         0 45 11
+         1  6 22</code></pre>
+</div>
+<p>Other important model metrics are laid out in the table below, with these metrics also proving how well the model predicts.</p>
+<p>Metrics to Note:</p>
+<p><strong>Sens = Sensitivity – Ratio between how much was classified as a score to how much was actually a score of that</strong> <strong>Spec = Specificity – Ratio between how much was classified as not a score to how much was actually not a score of that</strong> <strong>Precision – Ratio of how much was correctly classified as a score out of all scores </strong> <strong>F meas – Indicates classification strength</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="TRUE">
+Lasso Log Reg Finalized Model Metrics
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+.metric
+</th>
+<th style="text-align:left;">
+.estimator
+</th>
+<th style="text-align:right;">
+.estimate
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7976190
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sens
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8035714
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+spec
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7857143
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+precision
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8823529
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+f_meas
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8411215
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The relationship between sensitivity and specificity can be seen below The dotted line in the middle is what the roc curve would look like if the model predicted based on random 50/50 choice. The further our line is away from this line, the better the model is as we see.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="twominutedrill_files/figure-html5/unnamed-chunk-29-1.png" width="624" /></p>
+</div>
+<p>Below is a lay out of what probabilities in this model resulted in certain predictions. You can see the impact of the 0.5 threshold as hardly any 1 predictions occur where the probability of being 1 is less than 0.5 but it jumps after crossing 0.5.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="twominutedrill_files/figure-html5/unnamed-chunk-30-1.png" width="624" /></p>
+</div>
+<p>With this great and accurate model, we put it to the test with a recent drive from the College Football playoffs.</p>
+<p>Predicting with our model…</p>
+<p><strong>(2) Clemson vs (1) Alabama: Jan 9, 2017</strong></p>
+<p>31-28 Alabama with 2:01 left in 4Q Clemson ball on Clem 32, 68 yards to go to win the game Clemson ends up driving all 68 yards for a Deshaun Watson pass to Hunter Renfrow for a TD to win the game with 1 second left.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="Nat_Champ_Pic.jpeg" width="225" style="display: block; margin: auto;" /></p>
+</div>
+<p><strong>How does our best model, the logistic regression predict this?</strong></p>
+<p>Data was obtained from ESPN’s cache of play by play …. some unavailable data at the time like game qbr was replaced with an average of that metric for that player for the season</p>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="13">
+<div style="TRUE">
+Lasso Log Reg New QB Entry
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+qbr_raw
+</th>
+<th style="text-align:right;">
+qbr_total
+</th>
+<th style="text-align:right;">
+pass_tot_yds
+</th>
+<th style="text-align:right;">
+tot_yds
+</th>
+<th style="text-align:right;">
+ydsnet
+</th>
+<th style="text-align:right;">
+rush_yds_tot
+</th>
+<th style="text-align:right;">
+completion_perc
+</th>
+<th style="text-align:right;">
+run_plays
+</th>
+<th style="text-align:right;">
+pass_plays
+</th>
+<th style="text-align:right;">
+drive_yards_penalized
+</th>
+<th style="text-align:right;">
+drive_game_clock_start
+</th>
+<th style="text-align:right;">
+yards_to_go_start
+</th>
+<th style="text-align:right;">
+score
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+104.5
+</td>
+<td style="text-align:right;">
+104.5
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+68
+</td>
+<td style="text-align:right;">
+68
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.6667
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+127
+</td>
+<td style="text-align:right;">
+68
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="TRUE">
+Lasso Log Reg New QB Entry - Prediction
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+.pred_class
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>You can see our model predicts a score correctly!</strong></p>
+<p>For the reasons above, we feel very comfortable with the highly accurate and interpretable Lasso Log Regression. To ensure we weren’t missing a home run with any other model types, we also explored modeling with two different decision tree applications.</p>
+<h2 id="decision-tree-random-forest">Decision Tree – Random Forest</h2>
+<p>The next model we will briefly touch upon is a decision tree, specifically a random forest model. This model type uses a series of decision branch offs which work to split based upon significant variables.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>Performing a similar process as above, we were able to pull our overall accuracy from our best model and our ROC AUC as well. We can see a decently high 80% accuracy rate and 88% ROC AUC.</p>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="8">
+<div style="TRUE">
+Decision Tree Random Forest Best Model
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+mtry
+</th>
+<th style="text-align:right;">
+min_n
+</th>
+<th style="text-align:left;">
+.metric
+</th>
+<th style="text-align:left;">
+.estimator
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+n
+</th>
+<th style="text-align:right;">
+std_err
+</th>
+<th style="text-align:left;">
+.config
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.7943673
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.0273602
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+roc_auc
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8706435
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.0105285
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="TRUE">
+Decision Tree Random Forest Best Model
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+mtry
+</th>
+<th style="text-align:right;">
+min_n
+</th>
+<th style="text-align:left;">
+.config
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model3
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="twominutedrill_files/figure-html5/unnamed-chunk-42-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="twominutedrill_files/figure-html5/unnamed-chunk-43-1.png" width="624" /></p>
+</div>
+<p>You can see a goofier looking accuracy chart as the tuning parameters here are related to how the tree decides cut offs including minimum number of trees. You can see from our selected best model that the min_n optimized value of 2 and mtry value of 6 represent the peak accuracy values.</p>
+<p>This model was lacking in interpretability in a sense that we desired a more standard regression output as provided by a logistic regression above.</p>
+<p>Yet, this is another model option for future work.</p>
+<h2 id="boosted-decision-tree">Boosted Decision Tree</h2>
+<p>Similar to the previous model we fit, a Boosted Decision tree creates a series of splits, or branches. The only difference with this type of model is that each tree is NOT independent of the others. This Boosted model takes information from the prior trees, and uses it to create the next splits.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>After finding the best fit boosted model, we can again pull the overall accuracy of the model. Our boosted model shows an accuracy rate of 80.5% with an ROC AUC of 89%. This is almost exactly the same as the random forest.</p>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="7">
+<div style="TRUE">
+Decision Tree Boosted Best Accuracy Models
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+learn_rate
+</th>
+<th style="text-align:left;">
+.metric
+</th>
+<th style="text-align:left;">
+.estimator
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+n
+</th>
+<th style="text-align:right;">
+std_err
+</th>
+<th style="text-align:left;">
+.config
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0.1
+</td>
+<td style="text-align:left;">
+accuracy
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8062857
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.0268504
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model10
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.1
+</td>
+<td style="text-align:left;">
+roc_auc
+</td>
+<td style="text-align:left;">
+binary
+</td>
+<td style="text-align:right;">
+0.8793612
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.0221081
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="TRUE">
+Decision Tree Boosted Best Model
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+learn_rate
+</th>
+<th style="text-align:left;">
+.config
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0.001
+</td>
+<td style="text-align:left;">
+Preprocessor1_Model08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Again, like the Random Forest model we created, the Boosted model is hard to interpret and actually less accurate than the logistic regression we fit first. It would be much more beneficial to have a model of which we can view each variable and understand how that affects the final prediction. The boosted model lacks that trait.</p>
+<h1 id="comparing-model-performance">Comparing Model Performance</h1>
+<p>We will take a peak at some overall statistics from all three models to compare them across the board.</p>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4">
+<div style="TRUE">
+Lasso Models Performance
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+penalty
+</th>
+<th style="text-align:right;">
+accuracy
+</th>
+<th style="text-align:right;">
+true_neg_rate
+</th>
+<th style="text-align:right;">
+true_pos_rate
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:right;">
+0.8143673
+</td>
+<td style="text-align:right;">
+0.8264184
+</td>
+<td style="text-align:right;">
+0.7889127
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:right;">
+0.8143673
+</td>
+<td style="text-align:right;">
+0.8264184
+</td>
+<td style="text-align:right;">
+0.7889127
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:right;">
+0.8143673
+</td>
+<td style="text-align:right;">
+0.8264184
+</td>
+<td style="text-align:right;">
+0.7889127
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.0000002
+</td>
+<td style="text-align:right;">
+0.8143673
+</td>
+<td style="text-align:right;">
+0.8264184
+</td>
+<td style="text-align:right;">
+0.7889127
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.0000028
+</td>
+<td style="text-align:right;">
+0.8143673
+</td>
+<td style="text-align:right;">
+0.8264184
+</td>
+<td style="text-align:right;">
+0.7889127
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.0000359
+</td>
+<td style="text-align:right;">
+0.8143673
+</td>
+<td style="text-align:right;">
+0.8264184
+</td>
+<td style="text-align:right;">
+0.7889127
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.0004642
+</td>
+<td style="text-align:right;">
+0.8143673
+</td>
+<td style="text-align:right;">
+0.8264184
+</td>
+<td style="text-align:right;">
+0.7889127
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.0059948
+</td>
+<td style="text-align:right;">
+0.8144490
+</td>
+<td style="text-align:right;">
+0.8203578
+</td>
+<td style="text-align:right;">
+0.8006774
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.0774264
+</td>
+<td style="text-align:right;">
+0.7942041
+</td>
+<td style="text-align:right;">
+0.7942679
+</td>
+<td style="text-align:right;">
+0.7824955
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+0.5841633
+</td>
+<td style="text-align:right;">
+0.6000000
+</td>
+<td style="text-align:right;">
+0.4000000
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Log Reg Avg Accuracy = 0.803129</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="5">
+<div style="TRUE">
+Decision Tree – Random Forest Models Performance
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+mtry
+</th>
+<th style="text-align:right;">
+min_n
+</th>
+<th style="text-align:right;">
+accuracy
+</th>
+<th style="text-align:right;">
+true_neg_rate
+</th>
+<th style="text-align:right;">
+true_pos_rate
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.7943673
+</td>
+<td style="text-align:right;">
+0.8609041
+</td>
+<td style="text-align:right;">
+0.6609289
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+0.7863673
+</td>
+<td style="text-align:right;">
+0.8308308
+</td>
+<td style="text-align:right;">
+0.6949158
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+0.7621224
+</td>
+<td style="text-align:right;">
+0.8016254
+</td>
+<td style="text-align:right;">
+0.6844583
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.7982041
+</td>
+<td style="text-align:right;">
+0.8659122
+</td>
+<td style="text-align:right;">
+0.6545060
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+0.7822041
+</td>
+<td style="text-align:right;">
+0.8422045
+</td>
+<td style="text-align:right;">
+0.6573906
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+0.7943673
+</td>
+<td style="text-align:right;">
+0.8185828
+</td>
+<td style="text-align:right;">
+0.7414027
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.8141224
+</td>
+<td style="text-align:right;">
+0.8657339
+</td>
+<td style="text-align:right;">
+0.7130782
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+0.8022041
+</td>
+<td style="text-align:right;">
+0.8475176
+</td>
+<td style="text-align:right;">
+0.7045312
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+0.7942041
+</td>
+<td style="text-align:right;">
+0.8110850
+</td>
+<td style="text-align:right;">
+0.7539027
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Random Forest Avg Accuracy = 0.8103007</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4">
+<div style="TRUE">
+Decision Tree – Boosted Tree Models Performance
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+learn_rate
+</th>
+<th style="text-align:right;">
+accuracy
+</th>
+<th style="text-align:right;">
+true_neg_rate
+</th>
+<th style="text-align:right;">
+true_pos_rate
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0e+00
+</td>
+<td style="text-align:right;">
+0.6690612
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0e+00
+</td>
+<td style="text-align:right;">
+0.7620408
+</td>
+<td style="text-align:right;">
+0.7016995
+</td>
+<td style="text-align:right;">
+0.8755216
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0e+00
+</td>
+<td style="text-align:right;">
+0.7620408
+</td>
+<td style="text-align:right;">
+0.7016995
+</td>
+<td style="text-align:right;">
+0.8755216
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1e-07
+</td>
+<td style="text-align:right;">
+0.7620408
+</td>
+<td style="text-align:right;">
+0.7016995
+</td>
+<td style="text-align:right;">
+0.8755216
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1e-06
+</td>
+<td style="text-align:right;">
+0.7620408
+</td>
+<td style="text-align:right;">
+0.7016995
+</td>
+<td style="text-align:right;">
+0.8755216
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1e-05
+</td>
+<td style="text-align:right;">
+0.7620408
+</td>
+<td style="text-align:right;">
+0.7016995
+</td>
+<td style="text-align:right;">
+0.8755216
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1e-04
+</td>
+<td style="text-align:right;">
+0.7620408
+</td>
+<td style="text-align:right;">
+0.7016995
+</td>
+<td style="text-align:right;">
+0.8755216
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1e-03
+</td>
+<td style="text-align:right;">
+0.8226939
+</td>
+<td style="text-align:right;">
+0.8125567
+</td>
+<td style="text-align:right;">
+0.8379148
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1e-02
+</td>
+<td style="text-align:right;">
+0.7982857
+</td>
+<td style="text-align:right;">
+0.8351836
+</td>
+<td style="text-align:right;">
+0.7149887
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1e-01
+</td>
+<td style="text-align:right;">
+0.8062857
+</td>
+<td style="text-align:right;">
+0.8723638
+</td>
+<td style="text-align:right;">
+0.6706259
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Boosted Trees Avg Accuracy = 0.7645666</strong></p>
+<p>All models seem to have high accuracies but Log Reg and Random Forest are roughly equal around 80%.</p>
+<p>When factoring in our desired outcome with outputted coefficients, and taking into account the much higher true positive rate in the log reg output, we have much more confidence in our selection of the logistic regression model and stand by our analysis as appropriate</p>
+<h1 id="takeaways">Takeaways</h1>
+<p>By cleaning play by play data, and creating summary statistics relating to each drive that occurred under two minutes, we were able to successfully analyze the importance of the 2-minute Drill in the game of football. Not only did we look into the players that are the “clutchest” under 2 minutes, but created our own model to correctly classify the result of a 2-minute drill drive. From there, we could observe the most important variable to determine what is the most important thing a team can do to end their drive with a score.</p>
+<p>We show that QBR and number of penalties a team takes during the drive are the most important variables when it comes to team controllable variables. However, if you wanted to predict whether a team can end the drive in a score you should highly consider the number of yards the team has to drive.</p>
+<p>I think looking further into each 2 minute drill could lead to even more useful insights. One downfall of our own format is that we didn’t create enough variables to summarize each drive. There could be many more drive specific characteristics that could effect the models we created, such as if the team driving is the home or away team and the weather during the game. Nonetheless, we decided to focus only on the on-field aspects of the drive, especially Quarterback play.</p>
+<h1 id="data-ethics">Data Ethics</h1>
+<p>We see no potential harm for this analysis. We were very open about how we performed our analysis with the data and goal of the project being benign in scope. We see no negative uses of this data and see it only having possible upside with more stats reliance. Better equipped teams and offenses will lead to more in-game action, giving NFL fans what they desire. The only negative impact may be upon defensive specialist players.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

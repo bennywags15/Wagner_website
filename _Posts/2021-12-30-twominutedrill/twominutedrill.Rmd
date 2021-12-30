@@ -1,0 +1,871 @@
+---
+title: "2-Minute Drill: Understanding the Importance"
+description: |
+  This project dives deeper into the statistical importance of the football strategy known as the "2-Minute Drill". What makes a drive at the end of a half or game so tricky? How can teams effectively increase the chance of success when driving down the field with little time remaining?
+author:
+  - name: Ben Wagner & Anthony Palma 
+    url: {}
+date: 2021-12-30
+preview: Brady.jpg
+output:
+  distill::distill_article:
+    self_contained: false
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE, warning=FALSE)
+```
+
+```{r, error=FALSE, include=FALSE}
+library(nflfastR)
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(ggrepel)
+library(stringr)
+library(lubridate)
+library(tidymodels)        # for modeling
+library(themis)            # for step functions for unbalanced data
+library(doParallel)        # for parallel processing
+library(stacks)            # for stacking models
+library(naniar)            # for examining missing values (NAs)
+library(moderndive)        # for King County housing data
+library(vip)               # for variable importance plots
+library(patchwork)         # for combining plots nicely
+library(ranger)
+library(readr)
+library(ggimage)
+library(xgboost)
+library(kableExtra)
+library(expss)
+library(knitr)
+library(skimr)
+library(baguette) 
+library(future)
+library(broom)       # for making model summary tidy
+library(visreg)      # for plotting logodds and probability 
+library(margins)     # to calculate Average Marginal Effects
+library(ROCR) 
+```
+
+
+# Introduction 
+
+If you ever want to watch the greatest minds of the football world prove that they are elite, look no further than a close game with 2 minutes or less left on the clock. The "2-minute Drill" has been a staple tactic employed by teams for almost as long as the game has been around. Wikipedia defines this style of hurry-up offense as a "high-pressure and fast-paced situational strategy where a team will focus on clock management, maximizing the number of plays available for a scoring attempt before a half (or game) expires." When teams perform the 2-minute drill, you should expect them to manage the clock using timeouts and plays that eliminate a running clock. You can expect a two minute drill drive in about 1 in 5 games, so it makes sense why these drives are so important.
+
+```{r, include=FALSE}
+pbp_2018_2021 <- load_pbp(2018:2021)
+nfl_qbr_weekly <- readr::read_csv("https://raw.githubusercontent.com/nflverse/espnscrapeR-data/master/data/qbr-nfl-weekly.csv")
+nfl_qbr_weekly<-nfl_qbr_weekly %>% 
+  filter(season==2018:2021)
+
+Two_min_drill <- pbp_2018_2021 %>% 
+  filter(half_seconds_remaining<120, as.numeric(ms(drive_game_clock_start))<150) 
+  
+Two_min_drill %>% 
+  group_by(game_id, drive) %>%
+  select(game_id, drive_play_count, ydsnet, drive_game_clock_start, fixed_drive_result, name, posteam, week, drive_start_yard_line, wp) %>%
+  mutate(td = ifelse(fixed_drive_result=='Touchdown', 1, 0),
+  fg = ifelse(fixed_drive_result=='Field goal', 1, 0)) %>%
+  mutate(score= ifelse(td+fg==1, 1,0))
+
+Two_min_drill %>% 
+  group_by(game_id, drive) %>%
+  mutate(rush_attempt = ifelse(is.na(rush_attempt), 0, rush_attempt)) %>% 
+  mutate(pass_attempt = ifelse(is.na(pass_attempt), 0, pass_attempt)) %>%
+  summarize(num_plays= n(), num_rush=sum(rush_attempt), num_pass= sum(pass_attempt))
+
+two_min_new <- Two_min_drill %>% 
+  group_by(game_id, drive) %>%
+  mutate(td = ifelse(fixed_drive_result=='Touchdown', 1, 0),
+  fg = ifelse(fixed_drive_result=='Field goal', 1, 0), 
+  score= ifelse(td+fg==1, 1,0)) %>%
+  right_join(nfl_qbr_weekly, by = c("week" = "game_week", "posteam"="team_abb", "season" = "season")) %>% 
+  ungroup()
+
+getmode <- function(v) {
+    v <- na.rm()
+   uniqv <- unique(v)
+   uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+
+two_min_new <- two_min_new[!is.na(two_min_new$passer), ] 
+two_min_new <- two_min_new[!is.na(two_min_new$passer), ] 
+
+
+```
+
+
+
+```{r, include=FALSE}
+two_min_by_drive <- 
+  two_min_new  %>%
+    group_by(drive, game_id.x) %>%
+    mutate(run_plays = sum(rush_attempt, na.rm = TRUE), 
+           pass_plays = sum(pass_attempt, na.rm = TRUE), 
+           pass_tot_yds = sum(air_yards, na.rm = TRUE), 
+           completion_perc = (1- sum(incomplete_pass, na.rm = TRUE) / pass_plays), 
+           tot_yds = sum(yards_gained, na.rm = TRUE),
+           rush_yds_tot = sum(rushing_yards, na.rm = TRUE)) %>% 
+     mutate(td = ifelse(fixed_drive_result=='Touchdown', 1, 0),
+            fg = ifelse(fixed_drive_result=='Field goal', 1, 0), 
+            score = ifelse(td+fg==1, 1,0)) %>%
+    select(passer, qbr_raw, qbr_total, pass_tot_yds, tot_yds, ydsnet, rush_yds_tot, rusher, completion_perc, run_plays, pass_plays, drive_yards_penalized, tot_yds, drive_game_clock_start, td, fg, score, posteam, drive_start_yard_line, headshot_href, wp, season) %>% 
+  mutate(yards_to_go_start= ifelse(str_extract(drive_start_yard_line, "[A-Z]+")== posteam, 100- parse_number(drive_start_yard_line), parse_number(drive_start_yard_line))) 
+
+drive_summary_data <- two_min_by_drive %>%
+ arrange(game_id.x, drive) %>% 
+ group_by(game_id.x) %>% 
+  mutate(
+    td = as.factor(td), 
+    fg = as.factor(fg), 
+    score = as.factor(score)
+  ) %>%
+ summarise_all(last)
+
+drive_summary_data <- drive_summary_data %>% 
+  mutate(passer= replace(passer, passer=="Aa.Rodgers", "A.Rodgers"))
+
+drive_summary_data
+```
+
+Here you can see the number of drives that began under 2 minutes and 30 seconds left in the first or second halves from 2018 to today. As you can see, it is not too often that a team successfully completes a drive by scoring points. Just more than 21% of the time, teams have scored at least 3 points by kicking a field goal. While only 10% of the time, teams have reached the endzone for 6.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+drive_summary_data %>% 
+  summarize(num_td_drives= sum(td==1), num_fg_drives= sum(fg==1), num_drives=n(), td_success_perc= num_td_drives/num_drives, fg_success_perc= num_fg_drives/num_drives)  %>%
+  dplyr::rename("Number of TD's Scored"= num_td_drives) %>%
+  dplyr::rename("Number of FG's Scored"= num_fg_drives) %>%
+  dplyr::rename("Number of Drives"= num_drives) %>%
+  dplyr::rename("TD Success Rate"= td_success_perc) %>%
+  dplyr::rename("FG Success Rate"= fg_success_perc) %>%
+  kbl() %>% 
+  kable_paper("striped") %>% 
+  add_header_above(c("Two Minute Drill Success Rates" = 5)) 
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+drive_summary_data %>% 
+  group_by(season) %>%
+  summarize(season, num_td_drives= sum(td==1), num_fg_drives= sum(fg==1), num_drives=n(), td_success_perc= num_td_drives/num_drives, fg_success_perc= num_fg_drives/num_drives ) %>% 
+  dplyr::slice(1) %>% 
+  dplyr::rename("Number of TD's Scored"= num_td_drives) %>%
+  dplyr::rename("Number of FG's Scored"= num_fg_drives) %>%
+  dplyr::rename("Number of Drives"= num_drives) %>%
+  dplyr::rename("TD Success Rate"= td_success_perc) %>%
+  dplyr::rename("FG Success Rate"= fg_success_perc) %>%
+  kbl() %>% 
+  kable_paper("striped") %>% 
+  add_header_above(c("2-minute Drills in the last 4 Seasons" = 6))  
+```
+
+Now why should we take a look at this specific aspect of football? A successful 2-minute drill could have massive impacts on the probability of the team winning the game. Let me remind you of week 10 in 2020. The Buffalo Bills drove the length of the field, managing their own two minute drill. Josh Allen and the Bills capped off the drive by finding the endzone when Allen slung a beautiful 40 yard dot to his favorite target Stefon Diggs with just over 30 seconds left in the game. There was a 90% probability that the Bills had just secured the win, but the Cardinals had other plans.
+
+In a mere 3 plays, the Cardinals marched down to the 43 yard line in Bills territory. The rest will go down as one of the greatest plays in NFL history. Murray scrambles out of the pocket and heaves one down the field to a triple teamed DeAndre Hopkins who reaches up and snags the Bills hopes. Although a little luck was involved in this drive, the Cardinals effectively managed the amount of time they were given and won the game despite the statistics. That is what a great two minute drill drive can do for a team any given week.
+
+
+```{r, fig.align='center',echo=FALSE, fig.height=1, fig.width=1}
+knitr::include_graphics("C:\\Users\\littl\\OneDrive\\Documents\\Advanced Data Sci\\Stat-456-Final-Project\\DeandreCatch.jpg")
+
+``` 
+
+
+
+Here we can see the quarterbacks that have the best rate of scoring either a field goal or a touchdown over the past 4 seasons. Those closer to the top right show us that they are efficient when the clock strike below 2.
+
+```{r, echo=FALSE}
+drive_summary_data %>%
+  group_by(passer) %>% 
+  summarize(num_successful= sum(score==1), num_2min_drives= n(), success_perc= num_successful/num_2min_drives, headshot=headshot_href) %>%
+  arrange(desc(num_successful)) %>%  
+  dplyr::slice(1) %>% 
+  ggplot(aes(x=num_2min_drives, y= num_successful))+
+  geom_text_repel(aes(label=passer)) +
+  geom_point()+
+  #geom_image(aes(image= headshot), size=0.05, asp= 16/9)+
+  labs(x= "Number of 2-minute drill drives",
+       y= "Number of Successfull 2-minute drill drives",
+       title= "Every QB 2-Minute Drill Efficiency from 2018-2021",
+       caption = "Data: @nflfastR")+
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 8)) +
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 15))+
+  theme_bw()
+```
+
+There are few positions that require such a responsibility as an NFL Quarterback. The only other position in team sports that stand out to me is an MLB Pitcher. As you can see from these two plots, the better the QB plays that week, the higher probability the team has at completing that 2-minute drill with new points on the board. Every decision a Quarterback makes during those final 2 minutes could have massive repercussions, so its important the team has the right guy for the job. 
+
+
+```{r, echo = FALSE}
+drive_summary_data %>%
+  ggplot(aes(x=qbr_total, y=wp)) + 
+  facet_wrap(~score) +
+  geom_point()+
+  geom_smooth() +
+  labs(x="Total QBR for that week",
+       y= "Current Winning Percentage during the Drive",
+       title = "Does scoring(TD or FG) on a 2-Minute Drill Drive increase Win Percentage?",
+       caption = "Data: @nflfastR",
+       color= "Scored?")+
+  scale_color_manual(labels = c("No", "Yes"), values = c("blue", "red"))
+
+```
+
+
+```{r, echo = FALSE}
+
+# qbr // score
+
+drive_summary_data %>%  
+  ggplot(aes(x = qbr_total, y = score)) +
+  geom_boxplot()
+```
+
+
+We will explore the relationship between football stats in our set and the score outcome of two minute drills from the 2018 - 2021 seasons.  
+
+We will do so using primarily a logistic regression and will also explore random forests and boosted trees to ensure we explored all other options.  
+
+# Modeling 
+
+```{r, include=FALSE}
+two_min_test <- 
+  two_min_new  %>%
+    group_by(drive, game_id.x) %>%
+    mutate(run_plays = sum(rush_attempt, na.rm = TRUE), 
+           pass_plays = sum(pass_attempt, na.rm = TRUE), 
+           pass_tot_yds = sum(air_yards, na.rm = TRUE), 
+           completion_perc = (1- sum(incomplete_pass, na.rm = TRUE) / pass_plays), 
+           tot_yds = sum(yards_gained, na.rm = TRUE),
+           rush_yds_tot = sum(rushing_yards, na.rm = TRUE)) %>% 
+     mutate(td = ifelse(fixed_drive_result=='Touchdown', 1, 0),
+            fg = ifelse(fixed_drive_result=='Field goal', 1, 0), 
+            score = ifelse(td+fg==1, 1,0)) %>%
+    select(qbr_raw, qbr_total, pass_tot_yds, tot_yds, ydsnet, rush_yds_tot, completion_perc, run_plays, pass_plays, drive_yards_penalized, tot_yds, drive_game_clock_start, td, fg, score, posteam, drive_start_yard_line)
+
+two_min_by_drive <-
+  two_min_test %>%
+    mutate(yards_to_go_start= ifelse(str_extract(drive_start_yard_line, "[A-Z]+")== posteam, 100- parse_number(drive_start_yard_line), parse_number(drive_start_yard_line))) 
+  
+two_min_by_drive
+
+drive_summary_data <- two_min_by_drive %>%
+ arrange(game_id.x, drive) %>% 
+ group_by(game_id.x) %>% 
+  mutate(
+    td = as.factor(td), 
+    fg = as.factor(fg), 
+    score = as.factor(score),
+    drive_game_clock_start = as.numeric(ms(drive_game_clock_start))
+    ) %>%
+ summarise_all(last)
+
+drive_summary_data
+
+drive_summary_data$yards_to_go_start[is.na(drive_summary_data$yards_to_go_start)] <- 50
+
+drive_summary_data %>%
+  select(game_id.x, drive_game_clock_start, completion_perc, yards_to_go_start)
+
+```
+
+
+## Lasso Logisitic Regression 
+
+Our primary model we will be focusing on is a Logistic Regression.  This model specializes in predicting probabilities of our outcome, not just the outcome.  That way with this model, we can not only see whether it predicts a score or not but we can see and have access to the probabilities it used to predict the outcome.  
+
+When creating this model, we will be using a Lasso approach which stands for "Least Absolute Shrinkage and Selection Operator." In short, this type of modeling selects variables and their impact size while taking into account maximizing the accuracy and interpretability of the model.       
+
+```{r, include=FALSE}
+drive_summary_data$completion_perc[is.na(drive_summary_data$completion_perc)] <- 0
+drive_summary_data$ydsnet[is.na(drive_summary_data$ydsnet)] <- 0
+drive_summary_data$drive_yards_penalized[is.na(drive_summary_data$drive_yards_penalized)] <- 0
+drive_summary_data$drive_game_clock_start[is.na(drive_summary_data$drive_game_clock_start)] <- 0
+drive_summary_data$score[is.na(drive_summary_data$score)] <- 0
+
+
+drive_summary_data <- 
+  drive_summary_data %>%
+  select( -posteam, -td, -fg, -game_id.x, -drive, -drive_start_yard_line)
+
+drive_summary_data %>% 
+  add_n_miss() %>% 
+  count(n_miss_all)
+```
+
+
+
+```{r, include=FALSE}
+
+set.seed(2)
+
+drive_two_min_split <- initial_split(drive_summary_data, 
+                             prop = .75, strata = score)
+
+drive_two_min_training <- training(drive_two_min_split)
+drive_two_min_testing <- testing(drive_two_min_split)
+
+
+```
+  
+
+```{r, include=FALSE}
+drive_two_min_training %>% 
+  add_n_miss() %>% 
+  count(n_miss_all)
+
+drive_two_min_training %>%
+count(score)
+```
+
+
+```{r, echo = FALSE}
+set.seed(2)
+
+lasso_recipe <- recipe(score ~ ., 
+                       data = drive_two_min_training) %>% 
+  step_upsample(score, over_ratio = 1) %>%
+  step_dummy(all_nominal(), 
+             -all_outcomes()) %>%
+  step_normalize(all_predictors(), 
+                 -all_outcomes())
+
+```
+
+
+```{r, include = FALSE}
+lasso_recipe %>% 
+  prep(drive_two_min_training) %>%
+  juice() %>%
+  kbl() %>% 
+  kable_paper("striped") %>% 
+  add_header_above(c("Lasso Log Reg Recipe Output" = 13)) 
+```
+
+
+```{r, include = FALSE}
+lasso_mod  <- 
+  logistic_reg(mixture = 1) %>% 
+  set_engine("glmnet") %>% 
+  set_args(penalty = tune()) %>% 
+  set_mode("classification")
+
+lasso_wf <-  workflow() %>% 
+  add_recipe(lasso_recipe) %>% 
+  add_model(lasso_mod)
+
+lasso_wf
+```
+
+
+```{r, include=FALSE}
+
+set.seed(2) 
+cv_split <- vfold_cv(drive_two_min_training, 
+                              v = 5)
+
+
+
+penalty_grid <- grid_regular(penalty(),
+                             levels = 10)
+
+penalty_grid
+
+lasso_tune <-  
+  lasso_wf %>% 
+  tune_grid(
+    resamples = cv_split,
+    grid = penalty_grid,
+    control = control_stack_grid())
+```
+
+
+Below are the results of our 5 fold cross validation from our modeling.  In short, we separated the data into two groups: one to build the model off (75%) and the other to test and see how well the model works.
+
+Each fold is using a different part of the 75% of the training set to build the model and testing upon the rest. This is done over and over and over to amass tons of data on the best logistic regression model.  
+
+```{r, echo = FALSE}
+
+lasso_tune %>% 
+  select(id, .metrics) %>% 
+  unnest(.metrics) %>% 
+  filter(.metric == "accuracy") %>%
+  kbl() %>% 
+  kable_paper("striped") %>% 
+  add_header_above(c("Lasso Log Reg Models Performance" = 6)) 
+
+
+```
+
+Those different folds and their resulting accuracies were also used to try out different penalty parameters for lasso, which in this case helps to determine what the insignificance cut off is for throwing out "indeterminate" variables.  The accuracies appear to be quite high for most penalties.   
+
+```{r, echo = FALSE}
+lasso_tune %>% 
+  collect_metrics() %>% 
+  filter(.metric == "accuracy") %>% 
+  ggplot(aes(x = penalty, y = mean)) +
+  geom_point() +
+  geom_line() +
+  scale_x_log10(
+   breaks = scales::trans_breaks("log10", function(x) 10^x),
+   labels = scales::trans_format("log10",scales::math_format(10^.x))) +
+  labs(x = "penalty", y = "accuracy")
+```
+
+The goal of modeling is to extract our most accurate model and its associated penalty so that we can finalize the model and interpret some meaning.  
+
+```{r, echo = FALSE}
+lasso_tune %>% 
+  show_best(metric = "accuracy") %>%
+  kbl() %>% 
+  kable_paper("striped") %>% 
+  add_header_above(c("Lasso Log Reg Best Accuracy Models" = 7)) 
+```
+
+The best penalty which maximized our accuracy is below and will be directly input to finalize our model.   
+
+```{r, echo = FALSE}
+best_param <- lasso_tune %>% 
+  select_best(metric = "accuracy")
+
+best_param %>%
+  kbl() %>% 
+  kable_paper("striped") %>% 
+  add_header_above(c("Lasso Log Reg Best Model" = 2)) 
+```
+
+
+
+```{r, echo = FALSE}
+lasso_final_wf <- lasso_wf %>% 
+  finalize_workflow(best_param)
+lasso_final_wf
+```
+
+Now for some interpretation and meaning....below we have the coefficients of each variable from the logistic regression.  While normally in log odds form, we exponentiated the variable coefficients to now have them in an odds and odds ratio form, a much more interpretable style.    
+
+```{r, echo = FALSE}
+lasso_final_mod <- lasso_final_wf %>% 
+  fit(data = drive_two_min_training)
+
+
+lasso_final_mod %>% 
+  pull_workflow_fit() %>% 
+  tidy() %>% 
+  select(-penalty) %>%
+  mutate(estimate = exp(estimate)) %>% #for odds ratio
+  kbl() %>% 
+  kable_paper("striped") %>% 
+  add_header_above(c("Lasso Log Reg Finalized Model Coefficients" = 2)) 
+```
+
+Above, you can see the logistic regression model output for all of our variables and their coefficients.  
+
+Generally, if a coefficient is above one (1) it shows a positive impact upon the likelihood of a two minute drill drive resulting in success.  
+A coefficient value of one (1) indicates no change.
+And a coefficient value of less than one (1) means an increase in that variable results in a lesser chance of scoring.  
+
+Variables that **positively** impact the likelihood of scoring:
+
+- qbr raw
+- total yards
+- yards net -- **LARGEST positive impact upon score outcome**
+- total rush yards
+- drive yards penalized
+
+Variables that **negatively** impact the likelihood of scoring:
+
+- total pass yards
+- run plays
+- drive game clock 
+- yards to go -- **LARGEST negative impact upon score outcome**
+
+
+You can see the result of yards net having the largest impact upon score outcome in the Variable Importance plot below.  
+
+The massive positive impact upon score outcome is nearly matched by the massive negative impact upon scoring derived from the yards to go variable, which had the largest negatively correlated variable coefficient above.  
+
+You may notice more variables included on the VI plot than coefficients above.  That is because the lasso approach regularized and shrunk the least contributing variables coefficients to basically zero, as seen with these additional variables being quite unimportant to predicting score outcome.  
+
+```{r, echo = FALSE}
+lasso_final_mod %>% 
+  pull_workflow_fit() %>% 
+  vip()
+```
+
+Our best fitting model was quite well in prediction with a strong 86% accuracy.  Additionally, its ROC AUC, or the area under the curve, is quite high as well at 88% denoting a high level of confidence that the model will be able to distinguish between the score and no score class (88% confident to be exact).  
+
+```{r, echo = FALSE}
+lasso_test <- lasso_final_wf %>% 
+  last_fit(drive_two_min_split)
+
+lasso_test %>% 
+  collect_metrics() %>%
+  kbl() %>% 
+  kable_paper("striped") %>% 
+  add_header_above(c("Lasso Log Reg Best Model Accuracy and ROC" = 4)) 
+```
+
+We can dig a bit deeper into how well the model predicts by looking at how the model predicts on certain specific instances from our testing set.  Along with predicted class and actual class, you can also see the probability associated with each class leading to the prediction, with 50% as the threshold.   
+
+```{r, echo = FALSE}
+collect_predictions(lasso_test) %>%
+  kbl() %>% 
+  kable_paper("striped") %>% 
+  add_header_above(c("Lasso Log Reg Model Predictions" = 7)) 
+
+```
+
+We can also look at our predictions in the aggregate with a matrixed table.  
+
+
+```{r, echo = FALSE}
+preds <-
+  collect_predictions(lasso_test) 
+conf_mat(preds, .pred_class, score) 
+  
+```
+
+Other important model metrics are laid out in the table below, with these metrics also proving how well the model predicts.
+
+Metrics to Note: 
+
+**Sens = Sensitivity -- Ratio between how much was classified as a score to how much was actually a score of that**
+**Spec = Specificity -- Ratio between how much was classified as not a score to how much was actually not a score of that**
+**Precision -- Ratio of how much was correctly classified as a score out of all scores **
+**F meas -- Indicates classification strength**
+
+```{r, echo = FALSE}
+custom_metrics <- metric_set(accuracy, sens, spec, precision, f_meas)
+
+custom_metrics(preds, truth = score,
+         estimate = .pred_class) %>%
+  kbl() %>% 
+  kable_paper("striped") %>% 
+  add_header_above(c("Lasso Log Reg Finalized Model Metrics" = 3)) 
+```
+
+The relationship between sensitivity and specificity can be seen below  The dotted line in the middle is what the roc curve would look like if the model predicted based on random 50/50 choice.  The further our line is away from this line, the better the model is as we see.  
+
+```{r, echo = FALSE}
+preds %>%
+  roc_curve(truth = score, .pred_1) %>%
+  autoplot()
+```
+
+Below is a lay out of what probabilities in this model resulted in certain predictions.  You can see the impact of the 0.5 threshold as hardly any 1 predictions occur where the probability of being 1 is less than 0.5 but it jumps after crossing 0.5.  
+
+```{r, echo = FALSE}
+
+
+preds %>%
+  ggplot() +
+  geom_density(aes(x = .pred_1, fill = score), 
+               alpha = 0.5)
+```
+
+With this great and accurate model, we put it to the test with a recent drive from the College Football playoffs.  
+
+```{r, include = FALSE}
+drive_two_min_training
+```
+
+Predicting with our model...
+
+**(2) Clemson vs (1) Alabama: Jan 9, 2017** 
+
+31-28 Alabama with 2:01 left in 4Q
+Clemson ball on Clem 32, 68 yards to go to win the game
+Clemson ends up driving all 68 yards for a Deshaun Watson pass to Hunter Renfrow for a TD to win the game with 1 second left. 
+
+```{r, fig.align='center', echo=FALSE}
+knitr::include_graphics("C:\\Users\\littl\\OneDrive\\Documents\\Advanced Data Sci\\Wagner_website\\_Posts\\2021-12-30-twominutedrill\\Nat_Champ_Pic.jpeg")
+``` 
+
+**How does our best model, the logistic regression predict this?** 
+
+Data was obtained from ESPN's cache of play by play ....
+some unavailable data at the time like game qbr was replaced with an average of that metric for that player for the season 
+
+
+```{r, echo = FALSE}
+watson_to_renfrow <- tribble(~qbr_raw, ~qbr_total, ~pass_tot_yds, ~tot_yds, ~ydsnet, ~rush_yds_tot, ~completion_perc, ~run_plays, ~pass_plays, ~drive_yards_penalized, ~drive_game_clock_start, ~yards_to_go_start, ~score,
+                     104.5, 104.5, 60, 68, 68, 1, 0.6667, 1, 9, 7, 127, 68, 1)
+watson_to_renfrow %>%
+  kbl() %>% 
+  kable_paper("striped") %>% 
+  add_header_above(c("Lasso Log Reg New QB Entry" = 13)) 
+  
+
+```
+
+```{r, echo = FALSE}
+predict(lasso_final_mod, new_data = watson_to_renfrow) %>%
+    kbl() %>% 
+  kable_paper("striped") %>% 
+  add_header_above(c("Lasso Log Reg New QB Entry - Prediction" = 1)) 
+
+```
+
+
+**You can see our model predicts a score correctly!**
+
+
+For the reasons above, we feel very comfortable with the highly accurate and interpretable Lasso Log Regression.  To ensure we weren't missing a home run with any other model types, we also explored modeling with two different decision tree applications.  
+
+## Decision Tree -- Random Forest
+
+The next model we will briefly touch upon is a decision tree, specifically a random forest model.  This model type uses a series of decision branch offs which work to split based upon significant variables.  
+
+```{r, include = FALSE}
+
+set.seed(2)
+
+drive_two_min_split <- initial_split(drive_summary_data, 
+                             prop = .75, strata = score)
+
+drive_two_min_training <- training(drive_two_min_split)
+drive_two_min_testing <- testing(drive_two_min_split)
+
+cv_split <- vfold_cv(drive_two_min_training, 
+                              v = 5)
+```
+
+
+```{r, echo = FALSE}
+rf_recipe <- recipe(score ~ ., 
+                       data = drive_two_min_training) %>% 
+  step_upsample(score, over_ratio = 1) 
+```
+
+
+```{r, include = FALSE}
+set.seed(2)
+rf_model <- rand_forest(mtry = tune(), 
+              min_n = tune(), 
+              trees = 100) %>% 
+  set_mode("classification") %>% 
+  set_engine("ranger")
+```
+
+```{r, echo = FALSE}
+rf_workflow <- workflow() %>%
+  add_recipe(rf_recipe) %>%
+  add_model(rf_model) 
+```
+
+
+
+```{r, include = FALSE}
+rf_penalty_grid <- grid_regular(
+  finalize(mtry(), drive_two_min_training %>% select(-score)),
+  min_n(),
+  levels = 3)
+
+
+rf_tune <- 
+  rf_workflow %>% 
+  tune_grid(
+    resamples = cv_split, 
+    grid = rf_penalty_grid, 
+    control = control_stack_grid())
+```
+
+Performing a similar process as above, we were able to pull our overall accuracy from our best model and our ROC AUC as well.  We can see a decently high 80% accuracy rate and 88% ROC AUC.    
+
+
+```{r, echo = FALSE}
+rf_tune %>%
+  collect_metrics(metric = "accuracy") %>%
+  filter(.config == "Preprocessor1_Model1") %>%
+  kbl() %>% 
+  kable_paper("striped") %>% 
+  add_header_above(c("Decision Tree Random Forest Best Model" = 8))
+```
+
+```{r, echo = FALSE}
+rf_tune %>%
+  select_best(metric = "accuracy") %>%
+  kbl() %>% 
+  kable_paper("striped") %>% 
+  add_header_above(c("Decision Tree Random Forest Best Model" = 3))
+```
+
+
+```{r, echo = FALSE}
+rf_tune %>% 
+  collect_metrics() %>% 
+  filter(.metric == "accuracy") %>% 
+  ggplot(aes(x = min_n, y = mean)) +
+  geom_point() +
+  geom_line() +
+  labs(x = "Min Num of Trees", y = "accuracy")
+```
+
+```{r, echo = FALSE}
+rf_tune %>% 
+  collect_metrics() %>% 
+  filter(.metric == "accuracy") %>% 
+  ggplot(aes(x = mtry, y = mean)) +
+  geom_point() +
+  geom_line() +
+  labs(x = "Mtry", y = "accuracy")
+```
+
+You can see a goofier looking accuracy chart as the tuning parameters here are related to how the tree decides cut offs including minimum number of trees.  You can see from our selected best model that the min_n optimized value of 2 and mtry value of 6 represent the peak accuracy values.     
+
+This model was lacking in interpretability in a sense that we desired a more standard regression output as provided by a logistic regression above. 
+
+Yet, this is another model option for future work.  
+
+
+## Boosted Decision Tree
+
+Similar to the previous model we fit, a Boosted Decision tree creates a series of splits, or branches. The only difference with this type of model is that each tree is NOT independent of the others. This Boosted model takes information from the prior trees, and uses it to create the next splits. 
+
+```{r, echo = FALSE}
+xgboost_spec <-
+  boost_tree(
+    trees = 1000,
+    min_n = 5,
+    tree_depth = 2,
+    learn_rate = tune(),
+    loss_reduction = 10^-5,
+    sample_size = 1) %>%
+  set_mode("classification") %>%
+  set_engine("xgboost")
+
+xgboost_recipe <- recipe(formula = score ~ ., data = drive_two_min_training) %>%
+  step_upsample(score, over_ratio = 1) %>%
+  step_mutate_at(all_numeric(),
+                 fn = ~as.numeric(.)) %>%
+  step_novel(all_nominal_predictors()) %>%
+  step_dummy(all_nominal_predictors(), one_hot = TRUE) %>%
+  step_zv(all_predictors())
+
+xgboost_workflow <-
+  workflow() %>%
+  add_recipe(xgboost_recipe) %>%
+  add_model(xgboost_spec)
+
+set.seed(2)
+registerDoParallel() 
+
+boost_penalty_grid <- grid_regular(
+  learn_rate(),
+  levels = 10)
+
+boost_tune <- xgboost_workflow %>% 
+    tune_grid(
+    resamples = cv_split, 
+    grid = boost_penalty_grid, 
+    control = control_stack_grid())
+```
+
+
+After finding the best fit boosted model, we can again pull the overall accuracy of the model. Our boosted model shows an accuracy rate of 80.5% with an ROC AUC of 89%. This is almost exactly the same as the random forest.
+
+```{r, echo = FALSE}
+boost_tune %>%
+  collect_metrics(metric = "accuracy") %>%
+  filter(.config == "Preprocessor1_Model10") %>%
+  kbl() %>% 
+  kable_paper("striped") %>% 
+  add_header_above(c("Decision Tree Boosted Best Accuracy Models" = 7)) 
+```
+
+```{r, echo = FALSE}
+boost_tune %>%
+  select_best(metric = "accuracy") %>%
+  kbl() %>% 
+  kable_paper("striped") %>% 
+  add_header_above(c("Decision Tree Boosted Best Model" = 2))
+```
+
+Again, like the Random Forest model we created, the Boosted model is hard to interpret and actually less accurate than the logistic regression we fit first. It would be much more beneficial to have a model of which we can view each variable and understand how that affects the final prediction. The boosted model lacks that trait.
+
+
+# Comparing Model Performance
+
+We will take a peak at some overall statistics from all three models to compare them across the board.  
+
+```{r, echo = FALSE}
+lasso_tune %>% 
+  collect_predictions() %>% 
+  group_by(id, penalty) %>% 
+  summarize(accuracy = sum((score == .pred_class))/n(),
+            true_neg_rate = sum(score == 0 & .pred_class == 0)/sum(score == 0),
+            true_pos_rate = sum(score == 1 & .pred_class == 1)/sum(score == 1)) %>% 
+  group_by(penalty) %>% 
+  summarize(across(accuracy:true_pos_rate, mean)) %>%
+  kbl() %>% 
+  kable_paper("striped") %>% 
+  add_header_above(c("Lasso Models Performance" = 4)) 
+```
+
+```{r, include = FALSE}
+Avg_Accuracylr <- (0.8291755 + 0.8291755 + 0.8291755 + 0.8291755 + 0.8291755 + 0.8291755 + 0.8338266 + 0.8384778 + 0.8198732 + 0.5640592) / 10
+Avg_Accuracylr
+```
+
+**Log Reg Avg Accuracy = 0.803129**
+
+```{r, echo = FALSE}
+rf_tune %>% 
+  collect_predictions() %>% 
+  group_by(id, mtry, min_n) %>% 
+  summarize(accuracy = sum((score == .pred_class))/n(),
+            true_neg_rate = sum(score == 0 & .pred_class == 0)/sum(score == 0),
+            true_pos_rate = sum(score == 1 & .pred_class == 1)/sum(score == 1)) %>% 
+  group_by(mtry, min_n) %>% 
+  summarize(across(accuracy:true_pos_rate, mean)) %>%
+  kbl() %>% 
+  kable_paper("striped") %>% 
+  add_header_above(c("Decision Tree -- Random Forest Models Performance" = 5)) 
+```
+
+```{r, include = FALSE}
+Avg_Accuracyrf <- (0.8058140 + 0.8195560 + 0.8007400 + 0.8242072 + 0.8059197 + 0.7779070 + 0.8427061 + 0.8195560 + 0.7963002) / 9
+
+Avg_Accuracyrf
+```
+
+**Random Forest Avg Accuracy = 0.8103007**
+
+
+```{r, echo = FALSE}
+boost_tune %>% 
+  collect_predictions() %>% 
+  group_by(id, learn_rate) %>% 
+  summarize(accuracy = sum((score == .pred_class))/n(),
+            true_neg_rate = sum(score == 0 & .pred_class == 0)/sum(score == 0),
+            true_pos_rate = sum(score == 1 & .pred_class == 1)/sum(score == 1)) %>% 
+  group_by(learn_rate) %>% 
+  summarize(across(accuracy:true_pos_rate, mean)) %>%
+  kbl() %>% 
+  kable_paper("striped") %>% 
+  add_header_above(c("Decision Tree -- Boosted Tree Models Performance" = 4)) 
+```
+
+```{r, include = FALSE}
+Avg_Accuracybb <- (0.6899577 + 0.7595137 + 0.7642706 + 0.7642706 + 0.7642706 + 0.7642706 + 0.7315011 + 0.7497886 + 0.8243129 + 0.8335095) / 10
+
+Avg_Accuracybb
+```
+
+**Boosted Trees Avg Accuracy = 0.7645666**
+
+All models seem to have high accuracies but Log Reg and Random Forest are roughly equal around 80%. 
+
+When factoring in our desired outcome with outputted coefficients, and taking into account the much higher true positive rate in the log reg output, we have much more confidence in our selection of the logistic regression model and stand by our analysis as appropriate  
+
+# Takeaways 
+
+By cleaning play by play data, and creating summary statistics relating to each drive that occurred under two minutes, we were able to successfully analyze the importance of the 2-minute Drill in the game of football. Not only did we look into the players that are the "clutchest" under 2 minutes, but created our own model to correctly classify the result of a 2-minute drill drive. From there, we could observe the most important variable to determine what is the most important thing a team can do to end their drive with a score. 
+
+We show that QBR and number of penalties a team takes during the drive are the most important variables when it comes to team controllable variables. However, if you wanted to predict whether a team can end the drive in a score you should highly consider the number of yards the team has to drive.
+
+I think looking further into each 2 minute drill could lead to even more useful insights. One downfall of our own format is that we didn't create enough variables to summarize each drive. There could be many more drive specific characteristics that could effect the models we created, such as if the team driving is the home or away team and the weather during the game. Nonetheless, we decided to focus only on the on-field aspects of the drive, especially Quarterback play. 
+
+
+# Data Ethics
+
+We see no potential harm for this analysis.  We were very open about how we performed our analysis with the data and goal of the project being benign in scope.  We see no negative uses of this data and see it only having possible upside with more stats reliance.  Better equipped teams and offenses will lead to more in-game action, giving NFL fans what they desire.  The only negative impact may be upon defensive specialist players.  
