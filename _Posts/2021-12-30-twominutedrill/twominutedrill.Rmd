@@ -164,7 +164,7 @@ In a mere 3 plays, the Cardinals marched down to the 43 yard line in Bills terri
 
 
 ```{r, fig.align='center',echo=FALSE, fig.height=1, fig.width=1}
-knitr::include_graphics("C:\\Users\\littl\\OneDrive\\Documents\\Advanced Data Sci\\Stat-456-Final-Project\\DeandreCatch.jpg")
+knitr::include_graphics("C:\\Users\\littl\\OneDrive\\Documents\\Advanced Data Sci\\Wagner_website\\_Posts\\2021-12-30-twominutedrill\\dehopcatch.jpg")
 
 ``` 
 
