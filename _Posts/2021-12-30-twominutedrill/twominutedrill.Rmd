@@ -866,6 +866,10 @@ We show that QBR and number of penalties a team takes during the drive are the m
 I think looking further into each 2 minute drill could lead to even more useful insights. One downfall of our own format is that we didn't create enough variables to summarize each drive. There could be many more drive specific characteristics that could effect the models we created, such as if the team driving is the home or away team and the weather during the game. Nonetheless, we decided to focus only on the on-field aspects of the drive, especially Quarterback play. 
 
 
+
+Thank you so much for taking a look at my research! To take a further look at my source code, go to this [Github](https://github.com/apalma127/Stat-456-Final-Project/blob/main/Final_Product.Rmd) link.
+
+
 # Data Ethics
 
 We see no potential harm for this analysis.  We were very open about how we performed our analysis with the data and goal of the project being benign in scope.  We see no negative uses of this data and see it only having possible upside with more stats reliance.  Better equipped teams and offenses will lead to more in-game action, giving NFL fans what they desire.  The only negative impact may be upon defensive specialist players.  
