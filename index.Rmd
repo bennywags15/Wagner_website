@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-![](Wagner_Ben.jpg){width=200}
+![](Wagner Headshot.jpg){width=200}
 
 ## About Me:
 
