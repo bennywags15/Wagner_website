@@ -1,7 +1,7 @@
 ---
 title: "Data Analytics in Golf"
 description: |
-  I dive into how one of the most traditional sports in history is implementing data into the game.
+  A quick dive into how one of the most traditional sports in history is implementing data into the game.
 author:
   - name: Ben Wagner
     url: {}

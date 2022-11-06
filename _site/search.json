@@ -5,7 +5,7 @@
       "title": "Blog",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-11-06T18:26:08-05:00"
+      "last_modified": "2022-11-06T18:27:39-05:00"
     },
     {
       "path": "index.html",
@@ -13,7 +13,7 @@
       "description": "Hi, welcome to my adventures in Data Analytics!\n",
       "author": [],
       "contents": "\r\n\r\nAbout Me:\r\nI am a graduate student at NC State’s Institute for Advanced Analytics who is passionate about all things Data Science. I have an Bachelor’s degree in Economics with a minor in Data Science from Macalester College located in St. Paul, MN. I have about 4 years worth of experience in R, of which I used to create this website you’re on right now! I am also familiar with Python, and have dabbled in using Tableau.\r\nI am an alumni of the Macalester Varsity Men’s Soccer Team, where I fine tuned my skills as a leader and a great teammate. I have played many different sports including Basketball, Tennis and Hockey. I get very excited combining my love for sports and data analytics!\r\nEducation:\r\nOrchard Park High School Class of 2018\r\nMacalester College ’22 B.A. Economics Minor in Data Science\r\nN.C. State University Institute for Advanced Anaytics Master’s of Science - Analytics\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-11-06T18:26:10-05:00"
+      "last_modified": "2022-11-06T18:27:41-05:00"
     }
   ],
   "collections": ["posts/posts.json"]
