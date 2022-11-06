@@ -160,7 +160,7 @@ drive_summary_data %>%
 
 Now why should we take a look at this specific aspect of football? A successful 2-minute drill could have massive impacts on the probability of the team winning the game. Let me remind you of week 10 in 2020. The Buffalo Bills drove the length of the field, managing their own two minute drill. Josh Allen and the Bills capped off the drive by finding the endzone when Allen slung a beautiful 40 yard dot to his favorite target Stefon Diggs with just over 30 seconds left in the game. There was a 90% probability that the Bills had just secured the win, but the Cardinals had other plans.
 
-In a mere 3 plays, the Cardinals marched down to the 43 yard line in Bills territory. The rest will go down as one of the greatest plays in NFL history. Murray scrambles out of the pocket and heaves one down the field to a triple teamed DeAndre Hopkins who reaches up and snags the Bills hopes. Although a little luck was involved in this drive, the Cardinals effectively managed the amount of time they were given and won the game despite the statistics. That is what a great two minute drill drive can do for a team any given week.
+In a mere 3 plays, the Cardinals marched down to the 43 yard line in Bills territory. The rest will go down as one of the greatest plays in NFL history. Murray scrambles out of the pocket and heaves one down the field to a triple teamed DeAndre Hopkins who reaches up and snags the Bill's hopes. Although a little luck was involved in this drive, the Cardinals effectively managed the amount of time they were given and won the game despite the statistics. That is what a great two minute drill drive can do for a team any given week.
 
 
 ```{r, fig.align='center',echo=FALSE, fig.height=1, fig.width=1}
