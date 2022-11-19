@@ -6,7 +6,7 @@ author:
   - name: Ben Wagner
     url: {}
 date: 2022-11-16
-preview: TennisTeam.png
+preview: TennisTeam.jpg
 output:
   distill::distill_article:
     self_contained: false
