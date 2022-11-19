@@ -5,17 +5,12 @@ description: |
 author:
   - name: Ben Wagner
     url: {}
-preview: dashboard.jpg
 date: 2022-11-16
+preview: TennisTeam.png
 output:
   distill::distill_article:
     self_contained: false
 ---
-
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
 
 <div class='tableauPlaceholder' id='viz1668880757018' style='position: relative'>
 <noscript><a href='#'>
@@ -26,7 +21,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 ```{js, embedcode, echo=FALSE}
-
 var divElement = document.getElementById('viz1668880757018');                    
 var vizElement = divElement.getElementsByTagName('object')[0];                    
 if ( divElement.offsetWidth > 800 ){ 
