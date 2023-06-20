@@ -5,7 +5,7 @@
       "title": "Blog",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2023-06-20T16:40:53-04:00"
+      "last_modified": "2023-06-20T16:44:36-04:00"
     },
     {
       "path": "index.html",
@@ -13,7 +13,7 @@
       "description": "Hi, welcome to my adventures in Data Analytics!\n",
       "author": [],
       "contents": "\r\n\r\nAbout Me:\r\nHello, and thanks for visiting my blog!\r\nMy name is Ben Wagner, and I recently graduated from the North Carolina State’s Institute for Advanced Analytics with an M.S. in Analytics. Prior to that, I earned a B.A. in Economics from Macalester College, where I was also a member of the Men’s Soccer team. I like to think of myself as an “analytically curious problem-solver” who has the resiliancy to accomplish any challenge I face!\r\nDuring my time at N.C. State, I gained extensive knowledge and experience in the field of analytics, including data visualization, predictive modeling, and machine learning. I’m passionate about using data to solve complex problems and help organizations make informed decisions, and also learn new insights about my interests such as Soccer and Ice Hockey.\r\nThrough this blog, I hope to share my findings and expertise with others who are interested in the field of analytics. Whether you’re a student just starting out or an experienced professional looking to stay up-to-date on the latest trends and technologies, I hope you’ll find my content informative and engaging!\r\nThanks for stopping by, and feel free to reach out to me with any questions or comments you may have! My twitter inbox is always open and can be found in the far right of the menu above.\r\nEducation:\r\nOrchard Park High School\r\nClass of 2018\r\nMacalester College ’22\r\nBachelor of Arts in Economics\r\nMinor in Data Science\r\nNorth Carolina State University ’23\r\nInstitute for Advanced Analytics\r\nMaster of Science in Analytics\r\n\r\n\r\n\r\n",
-      "last_modified": "2023-06-20T16:40:55-04:00"
+      "last_modified": "2023-06-20T16:44:38-04:00"
     }
   ],
   "collections": ["posts/posts.json"]
